@@ -1,0 +1,8 @@
+{
+	"name": "4-7-8",
+	"hold.empty": 1,
+	"inhale": 4,
+	"hold.full": 7,
+	"exhale": 8,
+	"repeat": 6
+}
