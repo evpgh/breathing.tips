@@ -19,6 +19,11 @@
         <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
         <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
         <style>
+            #renderCanvas:-webkit-full-screen  { width: 100% }
+            #renderCanvas:-moz-full-screen     { width: 100% }
+            #renderCanvas:-ms-full-screen      { width: 100% }
+            #renderCanvas:-o-full-screen       { width: 100% }
+            #renderCanvas:full-screen          { width: 100% }
             html, body {
                 overflow: hidden;
                 width: 100%;
@@ -48,7 +53,28 @@
 <body>
     <canvas id="renderCanvas"></canvas>
     <script>
+        // https://www.sitepoint.com/html5-full-screen-api/
+        var pfx = ["webkit", "moz", "ms", "o", ""];
+        function RunPrefixMethod(obj, method) {
+            
+            var p = 0, m, t;
+            while (p < pfx.length && !obj[m]) {
+                m = method;
+                if (pfx[p] == "") {
+                    m = m.substr(0,1).toLowerCase() + m.substr(1);
+                }
+                m = pfx[p] + m;
+                t = typeof obj[m];
+                if (t != "undefined") {
+                    pfx = [pfx[p]];
+                    return (t == "function" ? obj[m]() : obj[m]);
+                }
+                p++;
+            }
+
+        }
         var canvas = document.getElementById("renderCanvas");
+        canvas.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
         var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true }); };
 
         var scene = null;
@@ -170,9 +196,18 @@
 
             mySphere.actionManager = new BABYLON.ActionManager(scene);
             mySphere.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, (function(mySphere) {
-                scene.beginAnimation(mySphere, 0, 10000, true);
-                mySphere.animations.push(breathingAnimation);
-                console.log("%c ActionManager: pick : " + mySphere.name, 'background: green; color: white');
+
+                    if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+                        RunPrefixMethod(document, "CancelFullScreen");
+                    }
+                    else {
+                        RunPrefixMethod(canvas, "RequestFullScreen");
+                    }
+                    setTimeout(() => {
+                        scene.beginAnimation(mySphere, 0, 10000, true);
+                        mySphere.animations.push(breathingAnimation);
+                    }, 1000)
+                    console.log("%c ActionManager: pick : " + mySphere.name, 'background: green; color: white');
             }).bind(this, mySphere)));
 
 
@@ -231,7 +266,6 @@
                     keys.push({frame: currFrame, value: new BABYLON.Vector3(0.2, 0.2, 0.2)})
                 }
                 console.log(keys)
-                debugger
                 breathingAnimation.setKeys(keys);
 
                 var bezierEase = new BABYLON.BezierCurveEase(0.6, 0.34, 0.52, 0.89);
@@ -269,6 +303,11 @@
             if (scene) {
                 scene.render();
             }
+        });
+
+        // Resize
+        window.addEventListener("resize", function () {
+            engine.resize();
         });
     </script>
 </body>
