@@ -54,25 +54,38 @@
     <canvas id="renderCanvas"></canvas>
     <script>
         // https://www.sitepoint.com/html5-full-screen-api/
-        var pfx = ["webkit", "moz", "ms", "o", ""];
-        function RunPrefixMethod(obj, method) {
+        // var pfx = ["webkit", "moz", "ms", "o", ""];
+        // function RunPrefixMethod(obj, method) {
             
-            var p = 0, m, t;
-            while (p < pfx.length && !obj[m]) {
-                m = method;
-                if (pfx[p] == "") {
-                    m = m.substr(0,1).toLowerCase() + m.substr(1);
-                }
-                m = pfx[p] + m;
-                t = typeof obj[m];
-                if (t != "undefined") {
-                    pfx = [pfx[p]];
-                    return (t == "function" ? obj[m]() : obj[m]);
-                }
-                p++;
-            }
+        //     var p = 0, m, t;
+        //     while (p < pfx.length && !obj[m]) {
+        //         m = method;
+        //         if (pfx[p] == "") {
+        //             m = m.substr(0,1).toLowerCase() + m.substr(1);
+        //         }
+        //         m = pfx[p] + m;
+        //         t = typeof obj[m];
+        //         if (t != "undefined") {
+        //             pfx = [pfx[p]];
+        //             return (t == "function" ? obj[m]() : obj[m]);
+        //         }
+        //         p++;
+        //     }
 
+        // }
+
+        function toggleFullscreen() {
+          let elem = document.querySelector("canvas");
+
+          if (!document.fullscreenElement) {
+            elem.requestFullscreen().catch(err => {
+              alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+            });
+          } else {
+            document.exitFullscreen();
+          }
         }
+
         var canvas = document.getElementById("renderCanvas");
         canvas.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
         var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true }); };
@@ -197,12 +210,13 @@
             mySphere.actionManager = new BABYLON.ActionManager(scene);
             mySphere.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, (function(mySphere) {
 
-                    if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
-                        RunPrefixMethod(document, "CancelFullScreen");
-                    }
-                    else {
-                        RunPrefixMethod(canvas, "RequestFullScreen");
-                    }
+                    // if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+                    //     RunPrefixMethod(document, "CancelFullScreen");
+                    // }
+                    // else {
+                    //     RunPrefixMethod(canvas, "RequestFullScreen");
+                    // }
+                    toggleFullscreen();
                     setTimeout(() => {
                         scene.beginAnimation(mySphere, 0, 10000, true);
                         mySphere.animations.push(breathingAnimation);
