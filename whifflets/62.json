@@ -1,0 +1,9 @@
+{
+	"name": "6-2",
+	"hold.empty": 1,
+	"inhale": 5,
+	"hold.full": 0,
+	"exhale": 2,
+	"repeat": 5,
+	"envmap": "/assets/qwantani_small.hdr"
+}
