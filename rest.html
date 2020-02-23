@@ -100,7 +100,7 @@
             var scene = new BABYLON.Scene(engine);
             var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
             camera.setPosition(new BABYLON.Vector3(2, -1, -6));
-            camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius;
+            // camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius;
             camera.attachControl(canvas, true);
 
             //  Use this in your actual scene to remove the loading screen instead of a timer
@@ -164,6 +164,8 @@
             defaultPipeline.depthOfFieldBlurLevel = BABYLON.DepthOfFieldEffectBlurLevel.Medium;
             defaultPipeline.chromaticAberrationEnabled = false;
             defaultPipeline.depthOfField.fStop = 6;
+            defaultPipeline.samples = 4;
+            defaultPipeline.fxaaEnabled = true;
 
 
             
@@ -173,15 +175,15 @@
             var hdrTexture = new BABYLON.HDRCubeTexture("/assets/079_hdrmap_small.hdr", scene, 1000);
 
             // Skybox
-            var skybox = BABYLON.Mesh.CreateBox("skyBox", 50.0, scene);
-            var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-            skyboxMaterial.backFaceCulling = false;
-            skyboxMaterial.reflectionTexture = hdrTexture;
-            skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-            skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-            skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-            skyboxMaterial.disableLighting = false;
-            skybox.material = skyboxMaterial;
+            // var skybox = BABYLON.Mesh.CreateBox("skyBox", 50.0, scene);
+            // var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+            // skyboxMaterial.backFaceCulling = false;
+            // skyboxMaterial.reflectionTexture = hdrTexture;
+            // skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+            // skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+            // skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+            // skyboxMaterial.disableLighting = false;
+            // skybox.material = skyboxMaterial;
 
             var mySphere = BABYLON.MeshBuilder.CreateSphere("mySphere", {diameter: 4, diameterX: 4}, scene);
             mySphere.scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
