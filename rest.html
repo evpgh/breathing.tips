@@ -175,15 +175,15 @@
             var hdrTexture = new BABYLON.HDRCubeTexture("/assets/079_hdrmap_small.hdr", scene, 1000);
 
             // Skybox
-            // var skybox = BABYLON.Mesh.CreateBox("skyBox", 50.0, scene);
-            // var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-            // skyboxMaterial.backFaceCulling = false;
-            // skyboxMaterial.reflectionTexture = hdrTexture;
-            // skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-            // skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-            // skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-            // skyboxMaterial.disableLighting = false;
-            // skybox.material = skyboxMaterial;
+            var skybox = BABYLON.Mesh.CreateBox("skyBox", 50.0, scene);
+            var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+            skyboxMaterial.backFaceCulling = false;
+            skyboxMaterial.reflectionTexture = hdrTexture;
+            skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+            skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+            skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+            skyboxMaterial.disableLighting = false;
+            skybox.material = skyboxMaterial;
 
             var mySphere = BABYLON.MeshBuilder.CreateSphere("mySphere", {diameter: 4, diameterX: 4}, scene);
             mySphere.scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
@@ -268,7 +268,7 @@
 
             var createBreathingAnimKeyFrames = function(breathingAnimation, recipe) {
                 for (var i = 0; i < recipe['repeat']; i++) {
-                    var currFrame = i * 870;
+                    var currFrame = i * 600;
                     if(recipe['hold.empty'] > 0) {
                         currFrame += recipe['hold.empty']*30;
                         keys.push({frame: currFrame, value: new BABYLON.Vector3(0.2, 0.2, 0.2)})

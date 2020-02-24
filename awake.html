@@ -281,7 +281,7 @@
 
             var createBreathingAnimKeyFrames = function(breathingAnimation, recipe) {
                 for (var i = 0; i < recipe['repeat']; i++) {
-                    var currFrame = i * 600;
+                    var currFrame = i * 240;
                     if(recipe['hold.empty'] > 0) {
                         currFrame += recipe['hold.empty']*30;
                         keys.push({frame: currFrame, value: new BABYLON.Vector3(0.2, 0.2, 0.2)})
@@ -304,21 +304,6 @@
                 //Then add the animation object to box1
                 mySphere.animations.push(breathingAnimation);
             }
-
-            //At the animation key 0, the value of scaling is "1"
-            // keys.push({frame: 0,value: new BABYLON.Vector3(0.2, 0.2, 0.2)});
-            // keys.push({frame: 120,value: new BABYLON.Vector3(1, 1, 1)});
-
-            // keys.push({frame: 130,value: new BABYLON.Vector3(0.99, 0.99, 0.99)});
-            // keys.push({frame: 220,value: new BABYLON.Vector3(1.01, 1.01, 1.01)});
-
-            // keys.push({frame: 250,value: new BABYLON.Vector3(0.99, 0.99, 0.99)});
-            // keys.push({frame: 310,value: new BABYLON.Vector3(1.01, 1.01, 1.01)});
-
-            // keys.push({frame: 330,value: new BABYLON.Vector3(1.02, 1.02, 1.02)});
-            // keys.push({frame: 570,value: new BABYLON.Vector3(0.2, 0.2, 0.2)});
-
-            //Adding keys to the animation object
 
             engine.hideLoadingUI();
 
