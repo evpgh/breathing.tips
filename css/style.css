@@ -328,6 +328,10 @@ header {
     text-align: left;
 }
 
+.producthunt img{
+    margin-top: 100px;
+}
+
 @media (max-width:991px) {
     .card.features {
         margin-bottom: 2rem;
