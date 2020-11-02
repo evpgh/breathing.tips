@@ -5,5 +5,5 @@
 	"hold.full": 4,
 	"exhale": 4,
 	"repeat": 4,
-	"envmap": "/assets/088_hdrmaps_small.hdr"
+	"envmap": "/assets/088.env"
 }

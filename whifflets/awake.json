@@ -5,5 +5,5 @@
 	"hold.full": 0,
 	"exhale": 2,
 	"repeat": 5,
-	"envmap": "/assets/qwantani_small.hdr"
+	"envmap": "/assets/quantani.env"
 }

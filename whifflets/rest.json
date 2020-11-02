@@ -4,5 +4,6 @@
 	"inhale": 4,
 	"hold.full": 7,
 	"exhale": 8,
-	"repeat": 6
+	"repeat": 6,
+	"envmap": "/assets/quantani.env"
 }
