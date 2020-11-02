@@ -40,12 +40,12 @@ var camera = null;
 
 var delayCreateScene = function () {
 
-    scene_name = window.location.pathname.split("/")[1]
+    scene_name = window.location.pathname.split("/")[2]
     // local development defers from production because netlify provides shortening of links
     if (scene_name.includes(".html")) {
       scene_name = scene_name.replace(".html", "")
     }
-    scene_settings = "/wifflets/" + scene_name + ".json"
+    scene_settings = "/tips/" + scene_name + ".json"
 
     // Create basic scene
     var scene = new BABYLON.Scene(engine);
