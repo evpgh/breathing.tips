@@ -41,7 +41,7 @@ var camera = null;
 var delayCreateScene = function () {
 
     scene_name = window.location.pathname.split("/")[1]
-    scene_settings = scene_name + ".json"
+    scene_settings = "/wifflets/" + scene_name + ".json"
 
     // Create basic scene
     var scene = new BABYLON.Scene(engine);
