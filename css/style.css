@@ -322,7 +322,14 @@ header {
     transition: all 0.3s ease;
     margin-bottom: 30px;
 }
-
+@media (max-width:767px) {
+    .feature-point {
+        padding-left: 63px;
+        text-align: left;
+        margin-top: -10px;
+        margin-bottom: 50px;
+    }
+}
 .feature-point {
     padding-left: 63px;
     text-align: left;
@@ -332,7 +339,7 @@ header {
     margin-top: 100px;
 }
 
-@media (max-width:991px) {
+@media (max-width:992px) {
     .card.features {
         margin-bottom: 2rem;
     }
@@ -686,7 +693,7 @@ textarea {
     color: #e38cb7;
 }
 
-@media (max-width:991px) {
+@media (max-width:992px) {
     .social-icons {
         text-align: center;
         margin-top: 2rem;

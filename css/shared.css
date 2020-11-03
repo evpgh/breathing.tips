@@ -1,0 +1,46 @@
+  #renderCanvas:-webkit-full-screen {
+    width: 100%
+  }
+
+  #renderCanvas:-moz-full-screen {
+    width: 100%
+  }
+
+  #renderCanvas:-ms-full-screen {
+    width: 100%
+  }
+
+  #renderCanvas:-o-full-screen {
+    width: 100%
+  }
+
+  #renderCanvas:full-screen {
+    width: 100%
+  }
+
+  html,
+  body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #renderCanvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    background-color: #BB464Bcc;
+  }
+
+  #loadingScreen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    background-color: #BB464Bcc;
+    z-index: 9999;
+  }
