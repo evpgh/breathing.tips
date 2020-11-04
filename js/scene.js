@@ -99,7 +99,6 @@ var delayCreateScene = function () {
     defaultPipeline.depthOfField.focusDistance = 1796;
     defaultPipeline.depthOfFieldEnabled = true;
     defaultPipeline.depthOfFieldBlurLevel = BABYLON.DepthOfFieldEffectBlurLevel.Medium;
-    // defaultPipeline.chromaticAberrationEnabled = true;
     defaultPipeline.depthOfField.fStop = 6;
     defaultPipeline.samples = 4;
     defaultPipeline.fxaaEnabled = true;
@@ -174,8 +173,6 @@ var delayCreateScene = function () {
     //Create a scaling animation at 30 FPS
     var breathingAnimation = new BABYLON.Animation("tutoAnimation", "scaling", 30, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
 
-
-    var keys = [];
     fetch(scene_settings)
         .then(response => response.json())
         .then(function(response) {
@@ -204,11 +201,14 @@ var delayCreateScene = function () {
     }
 
     var createBreathingAnimKeyFrames = function(breathingAnimation, recipe) {
+        var keys = []
+        var length = recipe['hold.empty'] + recipe['inhale'] + recipe['hold.full'] + recipe['exhale']
+
         for (var i = 0; i < recipe['repeat']; i++) {
-            var currFrame = i * 240;
+            var currFrame = i * 30 * length;
             if(recipe['hold.empty'] > 0) {
                 currFrame += recipe['hold.empty']*30;
-                keys.push({frame: currFrame, value: new BABYLON.Vector3(0.2, 0.2, 0.2)})
+                keys.push({frame: currFrame, value: new BABYLON.Vector3(0.195, 0.195, 0.195)})
             }
             currFrame += recipe['inhale']*30;
             keys.push({frame: currFrame, value: new BABYLON.Vector3(1, 1, 1)})
@@ -219,6 +219,12 @@ var delayCreateScene = function () {
             currFrame += recipe['exhale']*30;
             keys.push({frame: currFrame, value: new BABYLON.Vector3(0.2, 0.2, 0.2)})
         }
+        var curr_sec = length * recipe['repeat'];
+
+        // success anim
+        keys.push({frame: (curr_sec + 1)*30, value: new BABYLON.Vector3(0.3, 0.3, 0.3)})
+        keys.push({frame: (curr_sec + 1.5)*30, value: new BABYLON.Vector3(0.0, 0.0, 0.0)})
+        
         breathingAnimation.setKeys(keys);
 
         var bezierEase = new BABYLON.BezierCurveEase(0.6, 0.34, 0.52, 0.89);
