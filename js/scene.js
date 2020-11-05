@@ -99,8 +99,8 @@ var delayCreateScene = function () {
     defaultPipeline.depthOfFieldBlurLevel = BABYLON.DepthOfFieldEffectBlurLevel.Medium;
     defaultPipeline.depthOfField.fStop = 2;
     defaultPipeline.depthOfField.focalLength = 6.34;
-    defaultPipeline.depthOfField.focusDistance = 400;
-    defaultPipeline.samples = 8;
+    defaultPipeline.depthOfField.focusDistance = 590;
+    defaultPipeline.samples = 16;
     defaultPipeline.fxaaEnabled = true;
     
     var blackAndWhite = new BABYLON.BlackAndWhitePostProcess("bw", 1.0, null, null, engine, false);
@@ -158,26 +158,32 @@ var delayCreateScene = function () {
 
     var mySphere = BABYLON.MeshBuilder.CreateSphere("mySphere", {diameter: 4, diameterX: 4}, scene);
     mySphere.scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
-    var material = new BABYLON.StandardMaterial("kosh", scene);
+    var material = new BABYLON.PBRMaterial("air", scene);
     material.diffuseColor = BABYLON.Color3.White();
     material.invertRefractionY = false;
-    material.indexOfRefraction = 0.5;
-    material.specularPower = 512;
+    material.indexOfRefraction = 1.3;
     material.bumpTexture = new BABYLON.Texture("/assets/normal.png", scene);
     material.invertNormalMapX = true;
     material.invertNormalMapY = true
     material.bumpTexture.uScale = 2.0;
     material.bumpTexture.vScale = 2.0;
-    material.alpha = 0.95;
+    material.alpha = 0.98;
+    material.subSurface.isTranslucencyEnabled = true;
+    material.subSurface.translucencyIntensity = 0.2;
+
+
+    material.metallic = 0.8;
+    material.roughness = 0.1;
+
     mySphere.material = material;
     mySphere.renderingGroupId = 1;
 
-    material.refractionFresnelParameters = new BABYLON.FresnelParameters();
-    material.refractionFresnelParameters.power = 2;
-    material.reflectionFresnelParameters = new BABYLON.FresnelParameters();
-    material.reflectionFresnelParameters.power = 4;
-    material.reflectionFresnelParameters.leftColor = BABYLON.Color3.Black();
-    material.reflectionFresnelParameters.rightColor = BABYLON.Color3.White();
+    // material.refractionFresnelParameters = new BABYLON.FresnelParameters();
+    // material.refractionFresnelParameters.power = 2;
+    // material.reflectionFresnelParameters = new BABYLON.FresnelParameters();
+    // material.reflectionFresnelParameters.power = 4;
+    // material.reflectionFresnelParameters.leftColor = BABYLON.Color3.Black();
+    // material.reflectionFresnelParameters.rightColor = BABYLON.Color3.White();
 
     fetch(scene_settings)
         .then(response => response.json())
@@ -194,7 +200,6 @@ var delayCreateScene = function () {
             else {
                 RunPrefixMethod(canvas, "RequestFullScreen");
             }
-            mySphere.material.emissiveColor = new BABYLON.Color3(0.05, 0.05, 0.05);
             setTimeout(() => {
                 scene.beginAnimation(mySphere, 0, 10000, true);
                 mySphere.animations.push(breathingAnimation);
@@ -240,13 +245,14 @@ var delayCreateScene = function () {
 
         // Skybox
         var skybox = BABYLON.Mesh.CreateBox("skyBox", 50.0, scene);
-        var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+        var skyboxMaterial = new BABYLON.PBRMaterial("skyBox", scene);
         skyboxMaterial.backFaceCulling = false;
         skyboxMaterial.reflectionTexture = hdrTexture;
         skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
         skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
         skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
         skyboxMaterial.disableLighting = false;
+        skyboxMaterial.microSurface = 0.9;
         skybox.material = skyboxMaterial;
         skybox.renderingGroupId = 0;
         

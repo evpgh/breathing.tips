@@ -3,6 +3,6 @@
   "hold.full": 4,
   "exhale": 8,
   "hold.empty": 1,
-  "repeat": 5,
-  "envmap": "/assets/day_a.env"
+  "repeat": 7,
+  "envmap": "/assets/focus.env"
 }

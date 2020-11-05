@@ -3,6 +3,6 @@
   "hold.full": 3,
   "exhale": 5,
   "hold.empty": 2,
-  "repeat": 5,
+  "repeat": 20,
   "envmap": "/assets/sunset_e.env"
 }
