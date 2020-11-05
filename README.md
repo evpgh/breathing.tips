@@ -25,3 +25,6 @@ To add a new tip it is *not required* to have advanced coding skills. To add a n
 - new html file `tip-name.html`
 - new json file `tip-name.json` with a valid "hold.empty", "inhale", "hold.full", "exhale", "repeat" and "envmap" attributes
 - env map generated most easily through the sandbox method described [here](https://doc.babylonjs.com/how_to/use_hdr_environment#sandbox)
+
+## HDRI
+Credit goes to [NOEMOTION HDRs](http://noemotionhdrs.net)
