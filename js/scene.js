@@ -95,15 +95,66 @@ var delayCreateScene = function () {
     curve.shadowsDensity = 50;
     curve.shadowsSaturation = 40;
     defaultPipeline.imageProcessing.colorCurves = curve;
-    defaultPipeline.depthOfField.focalLength = 80;
-    defaultPipeline.depthOfField.focusDistance = 1796;
     defaultPipeline.depthOfFieldEnabled = true;
     defaultPipeline.depthOfFieldBlurLevel = BABYLON.DepthOfFieldEffectBlurLevel.Medium;
-    defaultPipeline.depthOfField.fStop = 6;
+    defaultPipeline.depthOfField.fStop = 2;
+    defaultPipeline.depthOfField.focalLength = 6.34;
+    defaultPipeline.depthOfField.focusDistance = 400;
     defaultPipeline.samples = 8;
     defaultPipeline.fxaaEnabled = true;
     
-    scene.activeCameras = [camera];
+    var blackAndWhite = new BABYLON.BlackAndWhitePostProcess("bw", 1.0, null, null, engine, false);
+    var horizontalBlur = new BABYLON.BlurPostProcess("hb", new BABYLON.Vector2(1.0, 0), 20, 1.0, null, null, engine, false);
+    var blackAndWhiteThenBlur = new BABYLON.PostProcessRenderEffect(engine, "blackAndWhiteThenBlur", function() { return [blackAndWhite, horizontalBlur] });
+    
+
+    defaultPipeline.addEffect(blackAndWhiteThenBlur);
+    pipeline = defaultPipeline
+    
+    //add UI to adjust pipeline.depthOfField.fStop, kernelSize, focusDistance, focalLength
+        var bgCamera = new BABYLON.ArcRotateCamera("BGCamera", Math.PI / 2 + Math.PI / 7, Math.PI / 2, 100,
+            new BABYLON.Vector3(0, 20, 0),
+            scene);
+        bgCamera.layerMask = 0x10000000;
+        var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+        advancedTexture.layer.layerMask = 0x10000000;
+        var UiPanel = new BABYLON.GUI.StackPanel();
+        UiPanel.width = "220px";
+        UiPanel.fontSize = "14px";
+        UiPanel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+        UiPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+        advancedTexture.addControl(UiPanel);
+        var params = [
+            {name: "fStop", min:1.2,max:3},
+            {name: "focusDistance", min:0,max:1000},
+            {name: "focalLength", min:0,max:50}
+        ]
+        params.forEach(function(param){
+            var header = new BABYLON.GUI.TextBlock();
+            header.text = param.name+":"+pipeline.depthOfField[param.name].toFixed(2);
+            header.height = "40px";
+            header.color = "black";
+            header.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            header.paddingTop = "10px";
+            UiPanel.addControl(header); 
+            var slider = new BABYLON.GUI.Slider();
+            slider.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            slider.minimum = param.min;
+            slider.maximum = param.max;
+            slider.color = "#636e72";
+            slider.value = pipeline.depthOfField[param.name];
+            slider.height = "20px";
+            slider.width = "205px";
+            UiPanel.addControl(slider); 
+            slider.onValueChangedObservable.add(function(v){
+                pipeline.depthOfField[param.name] = v;
+                header.text = param.name+":"+pipeline.depthOfField[param.name].toFixed(2);
+                moveFocusDistance = false;
+            }) 
+        })
+        // scene.activeCameras = [scene.activeCamera, bgCamera];
+        scene.activeCameras = [scene.activeCamera];
+
 
     var mySphere = BABYLON.MeshBuilder.CreateSphere("mySphere", {diameter: 4, diameterX: 4}, scene);
     mySphere.scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
@@ -119,6 +170,7 @@ var delayCreateScene = function () {
     material.bumpTexture.vScale = 2.0;
     material.alpha = 0.95;
     mySphere.material = material;
+    mySphere.renderingGroupId = 1;
 
     material.refractionFresnelParameters = new BABYLON.FresnelParameters();
     material.refractionFresnelParameters.power = 2;
@@ -196,6 +248,7 @@ var delayCreateScene = function () {
         skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
         skyboxMaterial.disableLighting = false;
         skybox.material = skyboxMaterial;
+        skybox.renderingGroupId = 0;
         
         object.material.refractionTexture = hdrTexture;
         object.material.reflectionTexture = hdrTexture;

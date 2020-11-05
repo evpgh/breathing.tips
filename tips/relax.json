@@ -1,8 +1,8 @@
 {
-	"hold.empty": 1,
 	"inhale": 4,
 	"hold.full": 7,
 	"exhale": 8,
+	"hold.empty": 1,
 	"repeat": 6,
-	"envmap": "/assets/relax.env"
+	"envmap": "/assets/sun_b.env"
 }
