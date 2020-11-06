@@ -272,10 +272,6 @@ var delayCreateScene = function () {
             }
             currFrame += recipe['inhale']*30;
             keys.push({frame: currFrame, value: new BABYLON.Vector3(1, 1, 1)})
-            if(recipe['hold.full'] > 0) {
-                currFrame += recipe['hold.full']*30;
-                keys.push({frame: currFrame, value: new BABYLON.Vector3(0.95, 0.95, 0.95)})
-            }
             currFrame += recipe['exhale']*30;
             keys.push({frame: currFrame, value: new BABYLON.Vector3(0.2, 0.2, 0.2)})
         }
