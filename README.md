@@ -1,7 +1,8 @@
 # Breathing tips
 
 ## What
-Simple, but powerful breathing techniques visualized in a minimal 3D environment. Controls and animations are easy, intuitive and effective. Netlify allows us to have a static site with zero-cost hosting and builds\*. Babylon.js is an amazing abstraction on top of WebGL and allows wonderful animations with little boiler plate. Main scene is based in `js/scene.js` and while a bit messy, allows reusage across tips. Pan & zoom are supported on almost any browser.
+Simple, but powerful breathing techniques visualized in a minimal 3D environment. Controls and animations are easy, intuitive and effective.  [Babylon.js](https://www.babylonjs.com/) is an amazing abstraction on top of WebGL and allows wonderful animations with little boiler plate. Main scene is based in `js/scene.js` and while a bit messy, allows reusage across tips. Pan & zoom are supported on almost any browser.
+Commit in master triggers a deploy on Netlify. As this is simple static site I aim at at zero-cost hosting and builds.
 
 ## Tips
 Tips are really easy. Each tip has a `html` file and a `json` file. Html file sets the scene up and allows users to view the tip. Json file contains the attributes of each breathing tip. Let's check `/tips/rest.json`.
