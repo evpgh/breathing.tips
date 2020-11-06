@@ -1,8 +1,8 @@
 {
 	"inhale": 5,
-	"hold.full": 0,
+	"hold_full": 0,
 	"exhale": 2,
-	"hold.empty": 1,
+	"hold_empty": 1,
 	"repeat": 5,
 	"envmap": "/assets/swiss_d.env"
 }

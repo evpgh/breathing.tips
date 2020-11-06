@@ -1,8 +1,8 @@
 {
   "inhale": 4,
-  "hold.full": 4,
+  "hold_full": 4,
   "exhale": 8,
-  "hold.empty": 1,
+  "hold_empty": 1,
   "repeat": 7,
   "envmap": "/assets/focus.env"
 }

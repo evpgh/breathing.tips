@@ -262,12 +262,12 @@ var delayCreateScene = function () {
 
     var createBreathingAnimKeyFrames = function(breathingAnimation, recipe) {
         var keys = []
-        var length = recipe['hold.empty'] + recipe['inhale'] + recipe['hold.full'] + recipe['exhale']
+        var length = recipe['hold_empty'] + recipe['inhale'] + recipe['hold_full'] + recipe['exhale']
 
         for (var i = 0; i < recipe['repeat']; i++) {
             var currFrame = i * 30 * length;
-            if(recipe['hold.empty'] > 0) {
-                currFrame += recipe['hold.empty']*30;
+            if(recipe['hold_empty'] > 0) {
+                currFrame += recipe['hold_empty']*30;
                 keys.push({frame: currFrame, value: new BABYLON.Vector3(0.195, 0.195, 0.195)})
             }
             currFrame += recipe['inhale']*30;
