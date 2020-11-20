@@ -76,6 +76,7 @@ var delayCreateScene = function () {
     loadingText.left = 0.5;
     loadingText.top = 0.7;
     loadingText.color = "grey";
+    loadingText.fontSize = 20;
 
     var fullscreenGUI = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("FullscreenUI", true);
 
