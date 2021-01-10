@@ -240,10 +240,10 @@ header {
 }
 
 .bg-gradient {
-    background-image: -moz-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(172, 99, 134, 0.8) 100%);
-    background-image: -webkit-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(172, 99, 134, 0.8) 100%);
-    background-image: -ms-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(172, 99, 134, 0.8) 100%);
-    background-image: linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(172, 99, 134, 0.8) 100%);
+    background-image: -moz-linear-gradient( 45deg, rgba(60, 8, 118, 1) 0%, rgba(172, 99, 134, 1) 100%);
+    background-image: -webkit-linear-gradient( 45deg, rgba(60, 8, 118, 1) 0%, rgba(172, 99, 134, 1) 100%);
+    background-image: -ms-linear-gradient( 45deg, rgba(60, 8, 118, 1) 0%, rgba(172, 99, 134, 1) 100%);
+    background-image: linear-gradient( 45deg, rgba(60, 8, 118, 1) 0%, rgba(172, 99, 134, 1) 100%);
 }
 
 .tagline {
@@ -262,7 +262,8 @@ header {
 }
 
 .title {
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
+    margin-top:-2rem !important;
 }
 @media (max-width:1500px) {
     .img-holder {
@@ -307,18 +308,18 @@ header {
 
 .gradient-fill:before {
     color: #fc73b4;
-    background: -moz-linear-gradient(top, #9477b4 0%, #fc73b4 100%);
-    background: -webkit-linear-gradient(top, #9477b4 0%, #fc73b4 100%);
-    background: linear-gradient(to bottom, #9477b4 0%, #fc73b4 100%);
+    background: -moz-linear-gradient(45deg, #9477b4 0%, #fc73b4 100%);
+    background: -webkit-linear-gradient(45deg, #9477b4 0%, #fc73b4 100%);
+    background: linear-gradient(45deg, #9477b4 0%, #fc73b4 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .card.features {
+    background-color: #faf6fb;
     border: 0;
     border-radius: 3px;
-    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
     margin-bottom: 30px;
 }
@@ -352,11 +353,8 @@ header {
     font-size: 14px;
 }
 
-.card.features:hover {
-    transform: translateY(-3px);
-    -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
-    -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
-    box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+.card:hover {
+    /*transform: translateY(-3px);*/
 }
 
 .box-icon {
@@ -367,9 +365,7 @@ header {
     margin-bottom: 1.5rem;
     background-color: #FFF;
 }
-
 .circle-icon {
-    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.07);
     width: 98px;
     height: 98px;
     border-radius: 50%;
@@ -470,16 +466,6 @@ header {
 }
 
 
-/*  TESTIMONIALS
-----------------------*/
-
-.owl-carousel .owl-item img.client-img {
-    width: 110px;
-    margin: 30px auto;
-    border-radius: 50%;
-    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.07);
-}
-
 .testimonials-single {
     text-align: center;
     max-width: 80%;
@@ -491,64 +477,6 @@ header {
     font-weight: 300;
 }
 
-.owl-next.disabled,
-.owl-prev.disabled {
-    opacity: 0.5;
-}
-
-.owl-prev,
-.owl-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.owl-prev {
-    left: 0;
-}
-
-.owl-next {
-    right: 0;
-}
-
-.owl-theme .owl-nav.disabled+.owl-dots {
-    margin-top: 60px;
-}
-
-.owl-theme .owl-dots .owl-dot span {
-    background: #e7d9eb;
-    width: 35px;
-    height: 8px;
-    border-radius: 10px;
-    transition: all 0.3s ease-in;
-}
-
-.owl-theme .owl-dots .owl-dot:hover span {
-    background: #ff487e;
-}
-
-.owl-theme .owl-dots .owl-dot.active span {
-    background: #ff487e;
-    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.07);
-}
-
-
-/*  IMAGE GALLERY
-----------------------*/
-
-.img-gallery .owl-item {
-    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.07);
-    transform: scale(0.8);
-    transition: all 0.3s ease-in;
-}
-
-.img-gallery .owl-item.center {
-    transform: scale(1);
-}
-
-
-/*  PRICING
-----------------------*/
 
 @media (max-width:992px) {
     .card-deck {
@@ -558,49 +486,6 @@ header {
     .card-deck .card {
         margin-bottom: 15px;
     }
-}
-
-.card.pricing {
-    border: 1px solid #f1eef1;
-}
-
-.card.pricing.popular {
-    border-top-width: 3px;
-    border-color: #ce75b4 #faf6fb #FFF;
-    box-shadow: 0px 12px 59px 0px rgba(36, 7, 31, 0.11);
-    color: #633991;
-}
-
-.card.pricing .card-head {
-    text-align: center;
-    padding: 40px 0 20px;
-}
-
-.card.pricing .card-head .price {
-    display: block;
-    font-size: 45px;
-    font-weight: 300;
-    color: #633991;
-}
-
-.card.pricing .card-head .price sub {
-    bottom: 0;
-    font-size: 55%;
-}
-
-.card.pricing .list-group-item {
-    border: 0;
-    text-align: center;
-    color: #959094;
-    padding: 1.05rem 1.25rem;
-}
-
-.card.pricing .list-group-item del {
-    color: #d9d3d8;
-}
-
-.card.pricing .card-body {
-    padding: 1.75rem;
 }
 
 .exercise-link {
