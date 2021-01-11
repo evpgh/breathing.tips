@@ -258,7 +258,7 @@ header {
     height: 0;
     padding-bottom: 68%;
     overflow: hidden;
-    margin-top: -40rem!important;
+    margin-top: -7rem!important;
 }
 
 .title {
@@ -267,15 +267,15 @@ header {
 }
 @media (max-width:1500px) {
     .img-holder {
-        padding-bottom: 88%;
-        margin-top: -35rem!important;
+        padding-bottom: 50%;
+        margin-top: -14rem!important;
     }
 }
 
 @media (max-width:1200px) {
     .img-holder {
-        padding-bottom: 110%;
-        margin-top: -36rem!important;
+        padding-bottom: 63%;
+        margin-top: -14rem!important;
     }
 }
 
@@ -284,8 +284,8 @@ header {
         font-size: 17px;
     }
     .img-holder {
-        padding-bottom: 104%;
-        margin-top: -18rem!important;
+        padding-bottom: 72%;
+        margin-top: -14rem!important;
     }
 }
 
@@ -296,7 +296,7 @@ header {
     }
     .img-holder {
         padding-bottom: 104%;
-        margin-top: -18rem!important;
+        margin-top: -7rem!important;
     }
 }
 
