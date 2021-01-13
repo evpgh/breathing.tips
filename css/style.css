@@ -237,6 +237,7 @@ header {
     padding: 100px 0 0;
     text-align: center;
     color: #FFF;
+    margin-bottom: 50px;
 }
 
 .bg-gradient {
@@ -327,7 +328,7 @@ header {
     .feature-point {
         padding-left: 63px;
         text-align: left;
-        margin-top: -10px;
+        margin-top: 20px;
         margin-bottom: 50px;
     }
 }
@@ -570,4 +571,12 @@ textarea {
         text-align: center;
         margin-top: 2rem;
     }
+}
+
+#share-modal h3 {
+    color: white;
+}
+
+#home {
+    margin-bottom: 
 }
