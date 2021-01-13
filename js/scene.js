@@ -32,39 +32,24 @@ function toggleFullscreen() {
 
 var canvas = document.getElementById("renderCanvas");
 
+// gif exporter
+// var capturer = new CCapture( { format: 'gif', workersPath: '/js/', framerate: 24, verbose: true, quality: 80 } );
+
 var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true }); };
 
 var scene = null;
 var engine = null;
 var camera = null;
+var idle = null;
+
 
 var delayCreateScene = function () {
 
-    scene_name = window.location.pathname.split("/")[2]
-    // local development defers from production because netlify provides shortening of links
-    if (scene_name.includes(".html")) {
-      scene_name = scene_name.replace(".html", "")
+    sceneSettings = function(exercise){
+        return fetch(exercise).then(response => response.json())
     }
-    scene_settings = "/tips/" + scene_name + ".json"
 
-    // Create basic scene
-    var scene = new BABYLON.Scene(engine);
-    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
-    camera.setPosition(new BABYLON.Vector3(2, -1, -6));
-    camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius;
-    camera.attachControl(canvas, true);
-
-    //  Use this in your actual scene to remove the loading screen instead of a timer
-    // -------------------------------------------------------------------------------------------
-    scene.executeWhenReady(function () { //When everything is done loading
-        fullscreenGUI.removeControl(loadingText); //Remove our loading screen
-        fullscreenGUI.removeControl(loadingBG);
-    }); 
-    // ----------------------------------------------------------------------------------------------
-    
-
-    //Loading screen definition starts here
-    //-------------------------------------------------------------------------------
+    // Loading screen
     var loadingBG = new BABYLON.GUI.Rectangle();
     loadingBG.width = 1.0;
     loadingBG.height = 1.0;
@@ -76,11 +61,33 @@ var delayCreateScene = function () {
     loadingText.left = 0.5;
     loadingText.top = 0.7;
     loadingText.color = "grey";
-    loadingText.fontSize = 20;
+    loadingText.fontSize = 25;
+
+    // Get exercise name
+    scene_name = window.location.pathname.split("/")[2]
+    // Local development defers from production because netlify provides shortening of links
+    if (scene_name.includes(".html")) {
+      scene_name = scene_name.replace(".html", "")
+    }
+    sceneURL = "/tips/" + scene_name + ".json"
+
+    // Create basic scene
+    var scene = new BABYLON.Scene(engine);
+    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
+    camera.setPosition(new BABYLON.Vector3(2, -1, -6));
+    camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius;
+    camera.attachControl(canvas, true);
+    // scene.debugLayer.show();
+
+    //  Remove the loading screen
+    scene.executeWhenReady(function () { //When everything is done loading
+        fullscreenGUI.removeControl(loadingText); //Remove our loading screen
+        fullscreenGUI.removeControl(loadingBG);
+    }); 
 
     var fullscreenGUI = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("FullscreenUI", true);
 
-    fullscreenGUI.addControl(loadingBG); //Show loading screen
+    fullscreenGUI.addControl(loadingBG);
     fullscreenGUI.addControl(loadingText);
 
     // Create default pipeline
@@ -112,49 +119,52 @@ var delayCreateScene = function () {
     defaultPipeline.addEffect(blackAndWhiteThenBlur);
     pipeline = defaultPipeline
     
-    //add UI to adjust pipeline.depthOfField.fStop, kernelSize, focusDistance, focalLength
-        var bgCamera = new BABYLON.ArcRotateCamera("BGCamera", Math.PI / 2 + Math.PI / 7, Math.PI / 2, 100,
-            new BABYLON.Vector3(0, 20, 0),
-            scene);
-        bgCamera.layerMask = 0x10000000;
-        var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-        advancedTexture.layer.layerMask = 0x10000000;
-        var UiPanel = new BABYLON.GUI.StackPanel();
-        UiPanel.width = "220px";
-        UiPanel.fontSize = "14px";
-        UiPanel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-        UiPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
-        advancedTexture.addControl(UiPanel);
-        var params = [
-            {name: "fStop", min:1.2,max:3},
-            {name: "focusDistance", min:0,max:1000},
-            {name: "focalLength", min:0,max:50}
-        ]
-        params.forEach(function(param){
-            var header = new BABYLON.GUI.TextBlock();
+    // UI
+    // Adjust pipeline.depthOfField.fStop, kernelSize, focusDistance, focalLength
+    var cameraSettingsUI = new BABYLON.ArcRotateCamera("BGCamera", Math.PI / 2 + Math.PI / 7, Math.PI / 2, 100,
+        new BABYLON.Vector3(0, 20, 0),
+        scene);
+    cameraSettingsUI.layerMask = 0x10000000;
+    var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+    advancedTexture.layer.layerMask = 0x10000000;
+    var UiPanel = new BABYLON.GUI.StackPanel();
+    UiPanel.width = "220px";
+    UiPanel.fontSize = "14px";
+    UiPanel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+    UiPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+    advancedTexture.addControl(UiPanel);
+    var params = [
+        {name: "fStop", min:1.2,max:3},
+        {name: "focusDistance", min:0,max:1000},
+        {name: "focalLength", min:0,max:50}
+    ]
+    params.forEach(function(param){
+        var header = new BABYLON.GUI.TextBlock();
+        header.text = param.name+":"+pipeline.depthOfField[param.name].toFixed(2);
+        header.height = "40px";
+        header.color = "black";
+        header.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+        header.paddingTop = "10px";
+        UiPanel.addControl(header); 
+        var slider = new BABYLON.GUI.Slider();
+        slider.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+        slider.minimum = param.min;
+        slider.maximum = param.max;
+        slider.color = "#636e72";
+        slider.value = pipeline.depthOfField[param.name];
+        slider.height = "20px";
+        slider.width = "205px";
+        UiPanel.addControl(slider); 
+        slider.onValueChangedObservable.add(function(v){
+            pipeline.depthOfField[param.name] = v;
             header.text = param.name+":"+pipeline.depthOfField[param.name].toFixed(2);
-            header.height = "40px";
-            header.color = "black";
-            header.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            header.paddingTop = "10px";
-            UiPanel.addControl(header); 
-            var slider = new BABYLON.GUI.Slider();
-            slider.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            slider.minimum = param.min;
-            slider.maximum = param.max;
-            slider.color = "#636e72";
-            slider.value = pipeline.depthOfField[param.name];
-            slider.height = "20px";
-            slider.width = "205px";
-            UiPanel.addControl(slider); 
-            slider.onValueChangedObservable.add(function(v){
-                pipeline.depthOfField[param.name] = v;
-                header.text = param.name+":"+pipeline.depthOfField[param.name].toFixed(2);
-                moveFocusDistance = false;
-            }) 
-        })
-        // scene.activeCameras = [scene.activeCamera, bgCamera];
-        scene.activeCameras = [scene.activeCamera];
+            moveFocusDistance = false;
+        }) 
+    })
+
+    // scene.activeCameras = [scene.activeCamera, cameraSettingsUI];
+
+    scene.activeCameras = [scene.activeCamera];
 
 
     var mySphere = BABYLON.MeshBuilder.CreateSphere("mySphere", {diameter: 4, diameterX: 4}, scene);
@@ -186,32 +196,54 @@ var delayCreateScene = function () {
     // material.reflectionFresnelParameters.leftColor = BABYLON.Color3.Black();
     // material.reflectionFresnelParameters.rightColor = BABYLON.Color3.White();
 
-    fetch(scene_settings)
-        .then(response => response.json())
-        .then(function(response) {
-            addEnvironmentTexture(mySphere, scene, response)
-        })
 
     mySphere.actionManager = new BABYLON.ActionManager(scene);
     mySphere.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, (function(mySphere) {
+        document.getElementById("btn-close").style.display = "none";
+        document.getElementById("share-modal").style.display = "none";
 
-            if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
-                RunPrefixMethod(document, "CancelFullScreen");
-            }
-            else {
-                RunPrefixMethod(canvas, "RequestFullScreen");
-            }
+        idle = false;
+
+        if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+            RunPrefixMethod(document, "CancelFullScreen");
+        }
+        else {
+            // RunPrefixMethod(canvas, "RequestFullScreen");
+        }
+
+        sceneSettings(sceneURL).then((response) => {
+
+            var cycle_length = response['hold_empty'] + response['inhale'] + response['hold_full'] + response['exhale']
+            offset = 2 // secs after exercise ends
+            var full_length = (cycle_length * response['repeat'] + offset) * 1000
+            // setTimeout(() => {
+            //     // capturer.stop()
+            //     // console.log("%c Gif capture stop", 'background: green; color: white');
+            //     // capturer.save()
+            //     // console.log("%c Gif capture save", 'background: green; color: white');
+            // }, 1000 + cycle_length * 1000)
             setTimeout(() => {
-                scene.beginAnimation(mySphere, 0, 10000, true);
+                scene.beginAnimation(mySphere, 0, full_length, true);
                 mySphere.animations.push(breathingAnimation);
+                // capturer.start();
+                // console.log("%c Gif capture start : " + mySphere.name, 'background: green; color: white');
             }, 1000)
-            console.log("%c ActionManager: pick : " + mySphere.name, 'background: green; color: white');
+            setTimeout(() => {
+                if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+                    RunPrefixMethod(document, "CancelFullScreen");
+                }
+                document.getElementById("share-modal").style.display = "block";
+                document.getElementById("btn-close").style.display = "block";
+                idle=true;
+            }, full_length)
+
+
+        })
+        // console.log("%c ActionManager: pick : " + mySphere.name, 'background: green; color: white');
     }).bind(this, mySphere)));
 
-
-    var exposure = 0.9;
-    var contrast = 1.1;
-
+    // Scene intro
+    // Camera
     var initialCameraAnimation = new BABYLON.Animation("showOffAnimation", "position", 30, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
     var cameraKeys = [];
     cameraKeys.push({frame: 0, value: new BABYLON.Vector3(2, -1, -6)})
@@ -219,24 +251,30 @@ var delayCreateScene = function () {
     initialCameraAnimation.setKeys(cameraKeys);
     camera.animations.push(initialCameraAnimation);
     scene.beginAnimation(camera, 0, 90, false);
-    // Creating an easing function
+    idle = true;
     var easingFunction = new BABYLON.CubicEase();
-
-    // For each easing function, you can choose between EASEIN (default), EASEOUT, EASEINOUT
     easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
-
-    // Adding the easing function to the animation
     initialCameraAnimation.setEasingFunction(easingFunction);
 
 
-    //Create a scaling animation at 30 FPS
-    var breathingAnimation = new BABYLON.Animation("tutoAnimation", "scaling", 30, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
+    // Exercise animation
+    var breathingAnimation = new BABYLON.Animation("breathingAnimation", "scaling", 30, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
 
-    fetch(scene_settings)
-        .then(response => response.json())
-        .then(function(response) {
-            createBreathingAnimKeyFrames(breathingAnimation, response)
-        })
+    sceneSettings(sceneURL).then((response) => {
+        createBreathingAnimKeyFrames(breathingAnimation, response);
+        // Env map texture
+        addEnvironmentTexture(mySphere, scene, response);
+    })
+    a = 0
+    // Idle material animation
+    scene.beforeRender = () => {
+        if (idle == true) {
+            sphere = scene.meshes.find(element => element.name == 'mySphere')
+            a += 0.05;
+            b = Math.cos(a) * 0.01
+            sphere.scaling = new BABYLON.Vector3(0.2 + b, 0.2 + b, 0.2 + b)
+        }
+    }
 
     var addEnvironmentTexture = function(object, scene, recipe) {
         console.log(recipe)
@@ -267,20 +305,20 @@ var delayCreateScene = function () {
 
         for (var i = 0; i < recipe['repeat']; i++) {
             var currFrame = i * 30 * length;
-            if(recipe['hold_empty'] > 0) {
-                currFrame += recipe['hold_empty']*30;
-                keys.push({frame: currFrame, value: new BABYLON.Vector3(0.195, 0.195, 0.195)})
-            }
+            currFrame += recipe['hold_empty']*30;
+            keys.push({frame: currFrame, value: new BABYLON.Vector3(0.195, 0.195, 0.195)})
             currFrame += recipe['inhale']*30;
             keys.push({frame: currFrame, value: new BABYLON.Vector3(1, 1, 1)})
             currFrame += recipe['exhale']*30;
             keys.push({frame: currFrame, value: new BABYLON.Vector3(0.2, 0.2, 0.2)})
+            currFrame += recipe['hold_full']*30;
+            keys.push({frame: currFrame, value: new BABYLON.Vector3(0.195, 0.195, 0.195)})
         }
         var curr_sec = length * recipe['repeat'];
 
         // success anim
         keys.push({frame: (curr_sec + 1)*30, value: new BABYLON.Vector3(0.3, 0.3, 0.3)})
-        keys.push({frame: (curr_sec + 1.5)*30, value: new BABYLON.Vector3(0.0, 0.0, 0.0)})
+        keys.push({frame: (curr_sec + 1.5)*30, value: new BABYLON.Vector3(0.2, 0.2, 0.2)})
         
         breathingAnimation.setKeys(keys);
 
@@ -300,9 +338,12 @@ if (!engine) throw 'engine should not be null.';
 
 scene = delayCreateScene();
 
+BABYLON.SceneOptimizer.OptimizeAsync(scene)
+
 engine.runRenderLoop(function () {
     if (scene) {
         scene.render();
+        // capturer.capture(engine.getRenderingCanvasRect);
     }
 });
 
