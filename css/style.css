@@ -489,8 +489,8 @@ header {
     }
 }
 
-.exercise-link {
-    text-decoration: none !important;
+.exercise-link:hover {
+    text-decoration: underline solid #633991;
 }
 
 
