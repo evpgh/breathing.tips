@@ -1,0 +1,22 @@
+{
+  "name": "breathing.tips",
+  "short_name": "breathing.tips",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/images/favicons/apple-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo-558.png",
+      "sizes": "558x558",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "background_color": "#3b0876",
+  "theme_color": "#3b0876",
+  "display": "standalone",
+  "orientation": "portrait"
+}
