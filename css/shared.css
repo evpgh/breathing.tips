@@ -1,3 +1,9 @@
+  #btn-close {
+    top:88%;
+    right:43%;
+    position:absolute;
+  }
+
   #renderCanvas:-webkit-full-screen {
     width: 100%
   }
@@ -22,22 +28,22 @@
   body {
     overflow: hidden;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     margin: 0;
     padding: 0;
   }
 
   #renderCanvas {
-    width: 100%;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
     touch-action: none;
     background-color: #faf6fb;
   }
 
   #loadingScreen {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     color: white;
     font-size: 50px;
     text-align: center;

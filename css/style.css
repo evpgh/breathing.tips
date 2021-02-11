@@ -180,7 +180,9 @@ p.lead {
 
 /* NAVBAR
 ----------------------*/
-
+#navbar {
+    width: 100%;
+}
 .nav-menu {
     padding: 1rem 0;
     transition: all 0.3s ease;
@@ -205,21 +207,36 @@ p.lead {
     position: relative;
 }
 
-@media (min-width: 992px) {
-    .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 1rem;
-        padding-left: 1rem;
-        font-size: 14px;
+.navbar-nav {
+    flex-direction: row !important;
+    display: table;
+}
+
+.nav-item {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 1rem !important;
+}
+
+@media (max-width:991px) {
+    .nav-item {
+        padding-left: 0;
     }
-    .navbar-nav>.nav-item>.nav-link.active:after {
-        content: "";
-        border-bottom: 2px solid #cd99d4;
-        left: 1rem;
-        right: 1rem;
-        bottom: 5px;
-        height: 1px;
-        position: absolute;
-    }
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 14px;
+}
+.navbar-nav>.nav-item>.nav-link.active:after {
+    content: "";
+    border-bottom: 2px solid #cd99d4;
+    left: 1rem;
+    right: 1rem;
+    bottom: 5px;
+    height: 1px;
+    position: absolute;
 }
 
 @media (max-width:991px) {

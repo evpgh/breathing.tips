@@ -1,5 +1,12 @@
 $(function() {
     "use strict";
+
+    window.addEventListener('resize', () => {
+      // We execute the same script as before
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
+
     /*-----------------------------------
      * FIX NAV-MENU TO BOTTOM ON MOBILE
      *-----------------------------------*/
@@ -20,8 +27,10 @@ $(function() {
         var $navmenu = $('.nav-menu');
         if ($(window).scrollTop() > 50) {
             $navmenu.addClass('is-scrolling');
+            $navmenu.removeClass("d-none");
         } else {
             $navmenu.removeClass("is-scrolling");
+            $navmenu.addClass("d-none");
         }
     }
     menuscroll();
