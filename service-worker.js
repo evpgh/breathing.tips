@@ -11,12 +11,12 @@ workbox.routing.registerRoute(
   })
 );
 
-// workbox.routing.registerRoute(
-//   /\.(?:css|js)$/,
-//   new workbox.strategies.StaleWhileRevalidate({
-//     cacheName: "assets"
-//   })
-// );
+workbox.routing.registerRoute(
+  /\.(?:css|js|min|eot|svg|ttf|woff|jpeg|env)$/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: "assets"
+  })
+);
 
 workbox.routing.registerRoute(
   /\.(?:ico|png|webp)$/,
