@@ -598,3 +598,13 @@ textarea {
 #home {
     margin-bottom: 
 }
+
+.media-body {
+    text-align: center;
+}
+
+@media (min-width:992px) {
+    .media-body {
+        text-align: left;
+    }
+}
