@@ -26,7 +26,9 @@ Copyright © All rights Reserved
 9. FOOTER
 
 ------------------------*/
-
+footer {
+    margin-bottom: 6rem !important;
+}
 
 /* GLOBAL
 ----------------------*/
@@ -237,7 +239,6 @@ header {
     padding: 100px 0 0;
     text-align: center;
     color: #FFF;
-    margin-bottom: 50px;
 }
 
 .bg-gradient {

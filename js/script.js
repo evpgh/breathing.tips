@@ -1,19 +1,20 @@
-/*
-
-Style   : MobApp Script JS
-Version : 1.0
-Author  : Surjith S M
-URI     : https://surjithctly.in/
-
-Copyright © All rights Reserved 
-
-*/
-
 $(function() {
     "use strict";
-
     /*-----------------------------------
-     * FIXED  MENU - HEADER
+     * FIX NAV-MENU TO BOTTOM ON MOBILE
+     *-----------------------------------*/
+    function autofix(){
+        if ($(window).width() > 768) {
+         $('.nav-menu').addClass('fixed-top');
+        }
+        else
+        {
+         $('.nav-menu').addClass('fixed-bottom');
+        }
+    }
+    autofix();
+    /*-----------------------------------
+     * FIXED MENU SCROLLING
      *-----------------------------------*/
     function menuscroll() {
         var $navmenu = $('.nav-menu');
@@ -34,7 +35,7 @@ $(function() {
     $('.navbar-nav > li:not(.dropdown) > a').on('click', function() {
         $('.navbar-collapse').collapse('hide');
     });
-    /* 
+    /*-----------------
      * NAVBAR TOGGLE BG
      *-----------------*/
     var siteNav = $('#navbar');
@@ -76,37 +77,4 @@ $(function() {
             }
         }
     });
-    /*-----------------------------------
-     * OWL CAROUSEL
-     *-----------------------------------*/
-    var $testimonialsDiv = $('.testimonials');
-    if ($testimonialsDiv.length && $.fn.owlCarousel) {
-        $testimonialsDiv.owlCarousel({
-            items: 1,
-            nav: true,
-            dots: false,
-            navText: ['<span class="ti-arrow-left"></span>', '<span class="ti-arrow-right"></span>']
-        });
-    }
-
-    var $galleryDiv = $('.img-gallery');
-    if ($galleryDiv.length && $.fn.owlCarousel) {
-        $galleryDiv.owlCarousel({
-            nav: false,
-            center: true,
-            loop: true,
-            autoplay: true,
-            dots: true,
-            navText: ['<span class="ti-arrow-left"></span>', '<span class="ti-arrow-right"></span>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 3
-                }
-            }
-        });
-    }
-
 }); /* End Fn */
