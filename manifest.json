@@ -18,5 +18,6 @@
   "background_color": "#3b0876",
   "theme_color": "#3b0876",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "description": "Installing breathing.tips on your device allows offline usage but even more importantly gives a better chance to create a habbit of breathing correctly. Seing the app icon on your home screen will trigger a crave for the sensation of deep breathing. This is one of the few such feedback loops you would actually want."
 }

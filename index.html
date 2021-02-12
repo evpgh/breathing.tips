@@ -66,9 +66,9 @@
             <a class="navbar-brand d-none d-md-block d-xl-block" href="index.html">breathing.tips</a>
             <div id="navbar">
               <ul class="navbar-nav mx-auto">
-                <li class="nav-item"> <a class="nav-link active" href="#home">HOME</a> </li>
+                <li class="nav-item"><a href="#exercises" class="nav-link">PRACTICE</a></li>
+                <li class="nav-item"> <a class="nav-link"><pwa-install id="installComponent">INSTALL</pwa-install></a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#social">SHARE</a> </li>
-                <li class="nav-item"><a href="#exercises" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">PRACTICE</a></li>
               </ul>
             </div>
           </nav>
@@ -119,7 +119,7 @@
   </div>
   <div class="section light-bg">
     <div class="text-center">
-      <small>PRACTICE NOW</small>
+      <a href="#exercises">PRACTICE NOW</a>
     </div>
   </div>
   <div class="section light-bg" id="exercises">
@@ -255,12 +255,15 @@
   <!-- Custom JS -->
   <script src="js/script.js"></script>
   <!-- PWA -->
+  <script src="js/pwainstall.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register('/service-worker.js').then(registration => {
           console.log("sw registered");
         })
+      var ref = document.getElementById("installComponent");
+      ref.getInstalledStatus();
       })
     }
   </script>

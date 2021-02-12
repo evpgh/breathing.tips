@@ -53,3 +53,18 @@ workbox.routing.registerRoute(
     cacheName: "settings"
   })
 )
+
+// if (navigator.storage && navigator.storage.persist) {
+//   navigator.storage.persist();
+// }
+
+// var installPrompt;
+// window.addEventListener("beforeinstallprompt", e => {
+//   // TODO: enable install button
+//   e.preventDefault();
+//   installPrompt = e;
+// })
+
+// buttonInstall.addEventListener("click", e => {
+//   installPrompt.prompt();
+// })

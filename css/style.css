@@ -216,6 +216,7 @@ p.lead {
     display: table-cell;
     vertical-align: middle;
     padding-left: 1rem !important;
+    padding-right: 1rem !important;
 }
 
 @media (max-width:991px) {
@@ -315,7 +316,7 @@ header {
     }
     .img-holder {
         padding-bottom: 104%;
-        margin-top: -7rem!important;
+        margin-top: -6.22rem!important;
     }
 }
 
@@ -607,4 +608,13 @@ textarea {
     .media-body {
         text-align: left;
     }
+}
+
+pwa-install::part(openButton) {
+    background-color: transparent;
+    color: rgba(255,255,255,.5);
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
