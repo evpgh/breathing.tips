@@ -1,25 +1,23 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "breathing.tips",
+  "name": "breathing.tips",
+  "start_url": "/",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/images/favicons/apple-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
+      "src": "/images/favicons/logo-558.png",
+      "sizes": "558x558",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "maskable"
     }
   ],
-  "start_url": ".",
+  "background_color": "#3b0876",
+  "theme_color": "#3b0876",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait",
+  "description": "Installing breathing.tips on your device allows offline usage but even more importantly gives a better chance to create a habbit of breathing correctly. Seing the app icon on your home screen will trigger a crave for the sensation of deep breathing. This is one of the few such feedback loops you would actually want."
 }
