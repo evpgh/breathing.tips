@@ -1,13 +1,10 @@
 import React from 'react';
 import './practice.styles.css';
 import * as BABYLON from 'babylonjs';
-import * as GUI from "@babylonjs/gui";
 import { Socialbar } from './../social/socialbar.component';
 
-import { FreeCamera, Vector3, HemisphericLight, MeshBuilder } from "@babylonjs/core";
 import SceneComponent from "./scene.component"; // uses above component in same directory
-// import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
-let box;
+
 const onSceneReady = (scene) => {
     // Get exercise name
     var scene_name = window.location.pathname.split("/")[2]
@@ -68,8 +65,6 @@ const onSceneReady = (scene) => {
 
 
     defaultPipeline.addEffect(blackAndWhiteThenBlur);
-    var pipeline = defaultPipeline
-
 
     material.metallic = 0.8;
     material.roughness = 0.1;
@@ -131,8 +126,8 @@ const onSceneReady = (scene) => {
     var a = 0
     // Idle material animation
     scene.beforeRender = () => {
-        if (idle == true) {
-            var sphere = scene.meshes.find(element => element.name == 'mySphere')
+        if (idle === true) {
+            var sphere = scene.meshes.find(element => element.name === 'mySphere')
             a += 0.05;
             var b = Math.cos(a) * 0.01
             sphere.scaling = new BABYLON.Vector3(0.2 + b, 0.2 + b, 0.2 + b)

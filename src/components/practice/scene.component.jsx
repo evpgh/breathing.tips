@@ -1,5 +1,6 @@
 import { Engine, Scene } from "@babylonjs/core";
 import React, { useEffect, useRef } from "react";
+// eslint-disable-next-line
 export default (props) => {
     const reactCanvas = useRef(null);
     const { antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest } = props;
@@ -31,6 +32,7 @@ export default (props) => {
                 }
             };
         }
+        // eslint-disable-next-line
     }, [reactCanvas]);
     return <canvas ref={reactCanvas} {...rest} />;
 };

@@ -1,7 +1,6 @@
 import $ from 'jquery';
 
 $(function() {
-    "use strict";
 
     window.addEventListener('resize', () => {
       // We execute the same script as before
