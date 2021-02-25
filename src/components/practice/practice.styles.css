@@ -1,0 +1,54 @@
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    touch-action: none;
+    background-color: #faf6fb;
+}
+
+#share-modal {
+    top: 30%;
+    left: 50%;
+    position: absolute;
+    display: none;
+}
+
+@font-face {
+    font-family: 'themify';
+    src: local('themify'), url(./fonts/themify.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="ti-"],
+[class*=" ti-"] {
+    font-family: 'themify';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ti-close:before {
+    content: "\e646";
+}
+
+#btn-close {
+    top: 88%;
+    position: absolute;
+    font-size: 5rem;
+    width: 60px;
+}

@@ -1,8 +1,0 @@
-{
-  "inhale": 5.5,
-  "hold_full": 0,
-  "exhale": 5.5,
-  "hold_empty": 0,
-  "repeat": 100,
-  "envmap": "/assets/sunset_e.env"
-}

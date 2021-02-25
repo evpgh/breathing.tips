@@ -1,31 +1,70 @@
-# Breathing tips
+# Getting Started with Create React App
 
-## What
-Simple, but powerful breathing techniques visualized in a minimal 3D environment. Controls and animations are easy, intuitive and effective.  [Babylon.js](https://www.babylonjs.com/) is an amazing abstraction on top of WebGL and allows wonderful animations with little boiler plate. Main scene is based in `js/scene.js` and while a bit messy, allows reusage across tips. Pan & zoom are supported on almost any browser.
-Commit in master triggers a deploy on Netlify. As this is simple static site I aim at at zero-cost hosting and builds.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Tips
-Tips are really easy. Each tip has a `html` file and a `json` file. Html file sets the scene up and allows users to view the tip. Json file contains the attributes of each breathing tip. Let's check `/tips/rest.json`.
-```
-{
-  "hold_empty": 1,
-  "inhale": 4,
-  "hold_full": 7,
-  "exhale": 8,
-  "repeat": 6,
-  "envmap": "/assets/079.env"
-}
-```
-We always start with empty lungs. We hold for a second, inhale for 4 seconds, hold like this for 7 seconds and exhale slowly for 8 seconds. Repeat 6 times. The background image and reflections on the ball are controlled by the environment map. The ones included here should be free to use.
+## Available Scripts
 
-## Local Setup
-Clone repo, then run `python3 -m http.server` or any other http server in the folder
+In the project directory, you can run:
 
-## New tip
-To add a new tip it is *not required* to have advanced coding skills. To add a new tip, clone the repo and create a PR with following changes:
-- new html file `tip-name.html`
-- new json file `tip-name.json` with a valid "hold_empty", "inhale", "hold_full", "exhale", "repeat" and "envmap" attributes
-- env map generated most easily through the sandbox method described [here](https://doc.babylonjs.com/how_to/use_hdr_environment#sandbox)
+### `yarn start`
 
-## HDRI
-Credit goes to [NOEMOTION HDRs](http://noemotionhdrs.net)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
