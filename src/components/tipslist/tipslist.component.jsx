@@ -27,7 +27,7 @@ class TipsList extends React.Component {
                 {this.state.tips.map(tip => (
                     <div className="card row mt-4 mb-4" key={tip.id}>
                         <div className="card-body">
-                            <a href={"/practice/" + tip.url} className="exercise-link">
+                            <link to={"/practice/" + tip.url} className="exercise-link">
                                 <h5 className="card-title">
                                     {tip.name}
                                     <svg height="50" width="50">
@@ -35,7 +35,7 @@ class TipsList extends React.Component {
                                         <polygon points="15,10 15,35 35,22" strokeLinejoin="round" fill="white" />
                                     </svg>
                                 </h5>
-                            </a>
+                            </link>
                             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(tip.description) }} />
                         </div>
                     </div>
