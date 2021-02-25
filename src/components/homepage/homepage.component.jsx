@@ -7,7 +7,6 @@ import { Footer } from './../footer/footer.component';
 import { Socialbar } from './../social/socialbar.component';
 import { Quote } from './../quote/quote.component';
 import TipsList from './../tipslist/tipslist.component';
-import { render } from 'lit-html/lib/shady-render';
 
 export const Homepage = () => {
     return (

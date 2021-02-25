@@ -1,5 +1,41 @@
 [
     {
+        "id": "as01",
+        "inhale": 5.5,
+        "hold_full": 0,
+        "exhale": 5.5,
+        "hold_empty": 0,
+        "repeat": 100,
+        "envmap": "/assets/sunset_e.env",
+        "name":"anti-stress",
+        "description": "Resonant coherent breathing or controlled slow breathing improves HRV and blood pressure and decreases stress.<a href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5709795/\">[1]</a><a href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5455070/\">[2]</a><a href=\"https://www.researchgate.net/publication/311750288_The_role_of_deep_breathing_on_stress\">[3]</a> A calming practice that places the heart, lungs, and circulation into a state of coherence, where the systems of the body are working at peak efficiency. Inhaling and exhaling at a rhytm of 5.5 seconds is shown to be optimal.<a href=\"https://www.sciencedirect.com/science/article/abs/pii/S0167876013003346\">[4]</a>",
+        "url": "anti-stress"
+    },
+    {
+        "id": "bb01",
+        "inhale": 4,
+        "hold_full": 4,
+        "exhale": 4,
+        "hold_empty": 4,
+        "repeat": 20,
+        "envmap": "/assets/focus.env",
+        "name": "box breathing",
+        "description": "Box Breathing technique popularized by ex Navy SEAL Mark Divine increases mental clarity, energy and focus. He advices to practice it daily just after waking up to experience the physical, psychological and emotional benefits.<a href=\"https://www.medicalnewstoday.com/articles/321805\">[8]</a>",
+        "url": "box-breathing"
+    },
+    {
+        "id": "aw01",
+        "inhale": 5,
+        "hold_full": 2,
+        "exhale": 7,
+        "hold_empty": 0,
+        "repeat": 100,
+        "envmap": "/assets/swiss_d.env",
+        "name": "awake",
+        "description": "As chess grand master Viswanathan Anand states \"the amount of oxygen in the blood is proportional to the brain’s performance\"<a href=\"https://thechessworld.com/articles/general-information/10-life-lessons-from-viswanathan-anand/\">[6]</a> This technique known as 5-2-7 breathing helps people make supperior decisions when faced stress<a href=\"https://pubmed.ncbi.nlm.nih.gov/30826382/\">[7]</a>",
+        "url": "awake"
+    },
+    {
         "id": "r01",
         "inhale": 4,
         "hold_full": 7,
@@ -22,41 +58,5 @@
         "name": "meditate",
         "description": "Introduced as part of his yogic teachings Sudarshan Kriya yogic breathing increases parasympathetic drive, calms stress response systems and neuroendrocrine release of hormones<a href=\"https://pubmed.ncbi.nlm.nih.gov/15750381/\">[9]</a>",
         "url": "meditate"
-    },
-    {
-        "id": "bb01",
-        "inhale": 4,
-        "hold_full": 4,
-        "exhale": 4,
-        "hold_empty": 4,
-        "repeat": 20,
-        "envmap": "/assets/focus.env",
-        "name": "box breathing",
-        "description": "Box Breathing technique popularized by ex Navy SEAL Mark Divine increases mental clarity, energy and focus. He advices to practice it daily just after waking up to experience the physical, psychological and emotional benefits.<a href=\"https://www.medicalnewstoday.com/articles/321805\">[8]</a>",
-        "url": "box-breathing"
-    },
-    {
-        "id": "as01",
-        "inhale": 5.5,
-        "hold_full": 0,
-        "exhale": 5.5,
-        "hold_empty": 0,
-        "repeat": 100,
-        "envmap": "/assets/sunset_e.env",
-        "name":"anti-stress",
-        "description": "Resonant coherent breathing or controlled slow breathing improves HRV and blood pressure and decreases stress.<a href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5709795/\">[1]</a><a href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5455070/\">[2]</a><a href=\"https://www.researchgate.net/publication/311750288_The_role_of_deep_breathing_on_stress\">[3]</a> A calming practice that places the heart, lungs, and circulation into a state of coherence, where the systems of the body are working at peak efficiency. Inhaling and exhaling at a rhytm of 5.5 seconds is shown to be optimal.<a href=\"https://www.sciencedirect.com/science/article/abs/pii/S0167876013003346\">[4]</a>",
-        "url": "anti-stress"
-    },
-    {
-        "id": "aw01",
-        "inhale": 5,
-        "hold_full": 2,
-        "exhale": 7,
-        "hold_empty": 0,
-        "repeat": 100,
-        "envmap": "/assets/swiss_d.env",
-        "name": "awake",
-        "description": "As chess grand master Viswanathan Anand states \"the amount of oxygen in the blood is proportional to the brain’s performance\"<a href=\"https://thechessworld.com/articles/general-information/10-life-lessons-from-viswanathan-anand/\">[6]</a> This technique known as 5-2-7 breathing helps people make supperior decisions when faced stress<a href=\"https://pubmed.ncbi.nlm.nih.gov/30826382/\">[7]</a>",
-        "url": "awake"
     }
 ]

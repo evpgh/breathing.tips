@@ -131,3 +131,7 @@ svg {
 .exercise-link:hover {
     text-decoration: underline solid #633991;
 }
+
+.card-body .card-title a {
+    color: #633991;
+}

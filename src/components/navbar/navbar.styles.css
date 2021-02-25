@@ -3,7 +3,7 @@
 }
 
 .nav-menu {
-    padding: 1rem 0;
+    padding: 1rem;
     transition: all 0.3s ease;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .nav-menu.is-scrolling {
-    padding: 0;
+    padding: 1rem;
 }
 
 .navbar-nav .nav-link {
