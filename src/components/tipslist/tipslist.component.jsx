@@ -2,6 +2,7 @@ import React from 'react';
 import DOMPurify from 'dompurify';
 
 import './tipslist.styles.css'
+import { Link } from 'react-router-dom';
 
 class TipsList extends React.Component {
     constructor() {
@@ -27,15 +28,15 @@ class TipsList extends React.Component {
                 {this.state.tips.map(tip => (
                     <div className="card row mt-4 mb-4" key={tip.id}>
                         <div className="card-body">
-                            <link to={"/practice/" + tip.url} className="exercise-link">
-                                <h5 className="card-title">
+                            <h5 className="card-title">
+                                <Link to={"/practice/" + tip.url}>
                                     {tip.name}
                                     <svg height="50" width="50">
                                         <circle cx="23" cy="23" r="23" fill="#FCDDEB" />
                                         <polygon points="15,10 15,35 35,22" strokeLinejoin="round" fill="white" />
                                     </svg>
-                                </h5>
-                            </link>
+                                </Link>
+                            </h5>
                             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(tip.description) }} />
                         </div>
                     </div>
