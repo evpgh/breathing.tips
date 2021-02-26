@@ -81,6 +81,7 @@ const onSceneReady = (scene) => {
 
     mySphere.actionManager = new ActionManager(scene);
     mySphere.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, (function (mySphere) {
+        Panelbear.track("SphereClick")
         document.getElementById("btn-close").style.display = "none";
         document.getElementById("share-modal").style.display = "none";
 
@@ -200,6 +201,7 @@ const onRender = (scene) => {
 
 };
 var Practice = function () {
+    Panelbear.trackPageview();
     return (
         <div className="text-center">
             <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
