@@ -9,6 +9,8 @@ import { Socialbar } from './../social/socialbar.component';
 
 import SceneComponent from "./scene.component"; // uses above component in same directory
 
+import * as Panelbear from "@panelbear/panelbear-js";
+
 const onSceneReady = (scene) => {
     // Get exercise name
     var scene_name = window.location.pathname.split("/")[2]
@@ -16,6 +18,7 @@ const onSceneReady = (scene) => {
     if (scene_name.includes(".html")) {
         scene_name = scene_name.replace(".html", "")
     }
+    Panelbear.track(scene_name);
     var sceneURL = "/tips.json"
     var sceneSettings = function (exercise) {
         return fetch(exercise).then(response => response.json()).then(tips => tips.find((t) => { return t.url === scene_name }))
