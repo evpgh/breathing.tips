@@ -82,28 +82,32 @@ const onSceneReady = (scene) => {
     mySphere.actionManager = new ActionManager(scene);
     mySphere.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, (function (mySphere) {
         Panelbear.track("SphereClick")
-        document.getElementById("btn-close").style.display = "none";
-        document.getElementById("share-modal").style.display = "none";
+        if (idle === true) {
+            document.getElementById("btn-close").style.display = "none";
+            document.getElementById("share-modal").style.display = "none";
+            idle = false;
+            sceneSettings(sceneURL).then((response) => {
+                console.log(response);
+                var cycle_length = response['hold_empty'] + response['inhale'] + response['hold_full'] + response['exhale']
+                var offset = 2 // secs after exercise ends
+                var full_length = (cycle_length * response['repeat'] + offset) * 1000
+                setTimeout(() => {
+                    scene.beginAnimation(mySphere, 0, full_length, true);
+                    mySphere.animations.push(breathingAnimation);
+                }, 1000)
+                setTimeout(() => {
+                    document.getElementById("share-modal").style.display = "block";
+                    document.getElementById("btn-close").style.display = "block";
+                    idle = true;
+                }, full_length)
+            })
+        } else {
+            document.getElementById("btn-close").style.display = "block";
+            document.getElementById("share-modal").style.display = "block";
+            idle = true;
+        }
 
-        idle = false;
 
-        sceneSettings(sceneURL).then((response) => {
-            console.log(response);
-            var cycle_length = response['hold_empty'] + response['inhale'] + response['hold_full'] + response['exhale']
-            var offset = 2 // secs after exercise ends
-            var full_length = (cycle_length * response['repeat'] + offset) * 1000
-            setTimeout(() => {
-                scene.beginAnimation(mySphere, 0, full_length, true);
-                mySphere.animations.push(breathingAnimation);
-            }, 1000)
-            setTimeout(() => {
-                document.getElementById("share-modal").style.display = "block";
-                document.getElementById("btn-close").style.display = "block";
-                idle = true;
-            }, full_length)
-
-
-        })
         console.log("%c ActionManager: pick : " + mySphere.name, 'background: green; color: white');
     }).bind(this, mySphere)));
 
@@ -203,11 +207,11 @@ const onRender = (scene) => {
 var Practice = function () {
     Panelbear.trackPageview();
     return (
-        <div className="text-center">
+        <div>
             <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
-            <a href="/"><span id="btn-close" className="ti-close gradient-fill ti-3x mr-3"></span></a>
-            <div id="share-modal">
+            <div id="share-modal" className="mx-auto">
                 <Socialbar />
+                <a href="/"><span id="btn-close" className="ti-close gradient-fill ti-3x mr-3 center-block"></span></a>
             </div>
         </div>
     )
