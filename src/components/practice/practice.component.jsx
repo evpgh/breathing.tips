@@ -3,7 +3,7 @@ import './practice.styles.css';
 import {
     ArcRotateCamera, Vector3, MeshBuilder, PBRMaterial, Color3, Texture, DefaultRenderingPipeline, ColorCurves,
     DepthOfFieldEffectBlurLevel, BlackAndWhitePostProcess, BlurPostProcess, PostProcessRenderEffect, ActionManager,
-    ExecuteCodeAction, Vector2, Animation, CubicEase, EasingFunction, CubeTexture, Mesh, BezierCurveEase
+    ExecuteCodeAction, Vector2, Animation, CubicEase, EasingFunction, CubeTexture, Mesh, BezierCurveEase, Sound
 } from '@babylonjs/core';
 import { Socialbar } from './../social/socialbar.component';
 
@@ -30,20 +30,18 @@ const onSceneReady = (scene) => {
     camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius;
     const canvas = scene.getEngine().getRenderingCanvas();
     camera.attachControl(canvas, true);
-    var mySphere = MeshBuilder.CreateSphere("mySphere", { diameter: 4, diameterX: 4 }, scene);
+    var mySphere = MeshBuilder.CreateSphere("mySphere", { diameter: 4, diameterX: 4, sideOrientation: Mesh.DOUBLESIDE, }, scene);
     mySphere.scaling = new Vector3(0.2, 0.2, 0.2);
     var material = new PBRMaterial("air", scene);
-    material.diffuseColor = Color3.White();
-    material.invertRefractionY = false;
-    material.indexOfRefraction = 1.3;
+    material.invertRefractionY = true;
+    material.indexOfRefraction = 1;
     material.bumpTexture = new Texture("/assets/normal.jpg", scene);
     material.invertNormalMapX = true;
     material.invertNormalMapY = true
     material.bumpTexture.uScale = 2.0;
     material.bumpTexture.vScale = 2.0;
-    material.alpha = 0.98;
-    material.subSurface.isTranslucencyEnabled = true;
-    material.subSurface.translucencyIntensity = 0.2;
+    material.alpha = 0.88;
+    material.albedoColor = new Color3(0.49, 0.73, 0.91);
 
     // Create default pipeline
     var defaultPipeline = new DefaultRenderingPipeline("default", true, scene, [camera]);
@@ -59,11 +57,11 @@ const onSceneReady = (scene) => {
     curve.shadowsSaturation = 40;
     defaultPipeline.imageProcessing.colorCurves = curve;
     defaultPipeline.depthOfFieldEnabled = true;
-    defaultPipeline.depthOfFieldBlurLevel = DepthOfFieldEffectBlurLevel.Medium;
+    defaultPipeline.depthOfFieldBlurLevel = DepthOfFieldEffectBlurLevel.High;
     defaultPipeline.depthOfField.fStop = 2;
     defaultPipeline.depthOfField.focalLength = 6.34;
     defaultPipeline.depthOfField.focusDistance = 590;
-    defaultPipeline.samples = 16;
+    defaultPipeline.samples = 128;
     defaultPipeline.fxaaEnabled = true;
 
     var blackAndWhite = new BlackAndWhitePostProcess("bw", 1.0, null, null, scene.getEngine(), false);
@@ -79,35 +77,40 @@ const onSceneReady = (scene) => {
     mySphere.material = material;
     mySphere.renderingGroupId = 1;
 
+    var tapSound = new Sound("tap", "/assets/audio/15853__zilverton__ultimate-subkick.wav", scene, null, { loop: false, autoplay: false })
+    var breathingAnim = null;
+
     mySphere.actionManager = new ActionManager(scene);
     mySphere.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, (function (mySphere) {
-        Panelbear.track("SphereClick")
+        tapSound.play()
+        var soundLength = 2894;
+
         if (idle === true) {
-            document.getElementById("btn-close").style.display = "none";
-            document.getElementById("share-modal").style.display = "none";
-            idle = false;
-            sceneSettings(sceneURL).then((response) => {
-                console.log(response);
-                var cycle_length = response['hold_empty'] + response['inhale'] + response['hold_full'] + response['exhale']
-                var offset = 2 // secs after exercise ends
-                var full_length = (cycle_length * response['repeat'] + offset) * 1000
-                setTimeout(() => {
-                    scene.beginAnimation(mySphere, 0, full_length, true);
+            setTimeout(() => {
+                idle = false;
+                document.getElementById("btn-close").style.display = "none";
+                document.getElementById("share-modal").style.display = "none";
+                sceneSettings(sceneURL).then((response) => {
+                    console.log(response);
+                    var cycle_length = response['hold_empty'] + response['inhale'] + response['hold_full'] + response['exhale']
+                    var offset = 2 // secs after exercise ends
+                    var full_length = (cycle_length * response['repeat'] + offset) * 1000
+                    breathingAnim = scene.beginAnimation(mySphere, 0, full_length, true);
                     mySphere.animations.push(breathingAnimation);
-                }, 1000)
-                setTimeout(() => {
-                    document.getElementById("share-modal").style.display = "block";
-                    document.getElementById("btn-close").style.display = "block";
-                    idle = true;
-                }, full_length)
-            })
+                    setTimeout(() => {
+                        document.getElementById("share-modal").style.display = "block";
+                        document.getElementById("btn-close").style.display = "block";
+                        idle = true;
+                    }, full_length)
+                })
+            }, soundLength)
         } else {
+            breathingAnim.stop();
             document.getElementById("btn-close").style.display = "block";
             document.getElementById("share-modal").style.display = "block";
             idle = true;
         }
-
-
+        Panelbear.track("SphereClick")
         console.log("%c ActionManager: pick : " + mySphere.name, 'background: green; color: white');
     }).bind(this, mySphere)));
 
@@ -134,6 +137,7 @@ const onSceneReady = (scene) => {
         createBreathingAnimKeyFrames(breathingAnimation, response);
         // Env map texture
         addEnvironmentTexture(mySphere, scene, response);
+        var music = new Sound("Ambient", "/assets/audio/" + response.audio, scene, null, { loop: true, autoplay: true });
     })
     var a = 0
     // Idle material animation
@@ -192,8 +196,8 @@ const onSceneReady = (scene) => {
 
         breathingAnimation.setKeys(keys);
 
-        var bezierEase = new BezierCurveEase(0.6, 0.34, 0.52, 0.89);
-        breathingAnimation.setEasingFunction(bezierEase);
+        var bezierEase = new BezierCurveEase(0.5, 1, 0.89, 1);
+        breathingAnimation.setEasingFunction(bezierEase); // https://easings.net/#easeOutQuad
 
         mySphere.animations.push(breathingAnimation);
     }
