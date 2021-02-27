@@ -18,7 +18,7 @@ const onSceneReady = (scene) => {
     if (scene_name.includes(".html")) {
         scene_name = scene_name.replace(".html", "")
     }
-    Panelbear.track(scene_name);
+    Panelbear.track("SceneLoaded");
     var sceneURL = "/tips.json"
     var sceneSettings = function (exercise) {
         return fetch(exercise).then(response => response.json()).then(tips => tips.find((t) => { return t.url === scene_name }))
