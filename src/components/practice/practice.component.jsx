@@ -86,20 +86,22 @@ const onSceneReady = (scene) => {
         var soundLength = 2894;
 
         if (idle === true) {
+            document.getElementById("btn-close").style.display = "none";
+            document.getElementById("share").style.display = "none";
+            document.getElementById("instructions").style.display = "none";
             setTimeout(() => {
                 idle = false;
-                document.getElementById("btn-close").style.display = "none";
-                document.getElementById("share-modal").style.display = "none";
                 sceneSettings(sceneURL).then((response) => {
                     console.log(response);
                     var cycle_length = response['hold_empty'] + response['inhale'] + response['hold_full'] + response['exhale']
-                    var offset = 2 // secs after exercise ends
+                    var offset = 1 // secs after exercise ends
                     var full_length = (cycle_length * response['repeat'] + offset) * 1000
                     breathingAnim = scene.beginAnimation(mySphere, 0, full_length, true);
                     mySphere.animations.push(breathingAnimation);
                     setTimeout(() => {
-                        document.getElementById("share-modal").style.display = "block";
+                        document.getElementById("share").style.display = "block";
                         document.getElementById("btn-close").style.display = "block";
+                        document.getElementById("instructions").style.display = "block";
                         idle = true;
                     }, full_length)
                 })
@@ -107,7 +109,7 @@ const onSceneReady = (scene) => {
         } else {
             breathingAnim.stop();
             document.getElementById("btn-close").style.display = "block";
-            document.getElementById("share-modal").style.display = "block";
+            document.getElementById("share").style.display = "block";
             idle = true;
         }
         Panelbear.track("SphereClick")
@@ -228,10 +230,15 @@ class Practice extends React.Component {
         return (
             <div>
                 <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
-                <div id="share-modal" className="mx-auto">
-                    <Socialbar />
-                    <a href="/"><span id="btn-close" className="ti-close gradient-fill ti-3x mr-3 center-block"></span></a>
+                <div id="instructions">
+                    <hr />
+                    <h1> Bring your attention to your breath </h1>
+                    <p> tap the ball to start</p>
                 </div>
+                <div id="share">
+                    <Socialbar />
+                </div>
+                <a href="/"><span id="btn-close" className="ti-close ti-3x mr-3 center-block"></span></a>
             </div>
         )
     }

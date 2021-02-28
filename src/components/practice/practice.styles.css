@@ -13,11 +13,49 @@ canvas {
     background-color: #faf6fb;
 }
 
-#share-modal {
-    bottom: 10%;
-    right: 5%;
+#share {
+    top: 0%;
+    left: 0%;
     position: absolute;
+    color: white !important;
+    font-size: 1.2rem;
+    width: 95%;
+    top: 5%;
+    left: 5%;
     display: none;
+}
+
+#instructions {
+    top: 5%;
+    left: 5%;
+    position: absolute;
+    color: white !important;
+    font-size: 1.2rem;
+    width: 95%;
+    top: 5%;
+    left: 5%;
+    display: block;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.287);
+}
+
+hr {
+    border-top: 5px solid rgba(255, 255, 255, 0.287);
+}
+
+.ti-close:before {
+    content: "\e646";
+}
+
+#btn-close {
+    position: absolute;
+    font-size: 5rem;
+    width: 60px;
+    bottom: 5%;
+    left: 5%;
+    color: rgba(255, 255, 255, 0.287);
 }
 
 @font-face {
@@ -39,19 +77,4 @@ canvas {
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-.ti-close:before {
-    content: "\e646";
-}
-
-#btn-close {
-    position: absolute;
-    font-size: 5rem;
-    width: 60px;
-    right: 5%;
-}
-
-.light-bg {
-    background-color: transparent !important;
 }
