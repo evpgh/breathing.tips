@@ -1,7 +1,7 @@
 {
   "short_name": "breathing.tips",
   "name": "breathing.tips",
-  "start_url": "/",
+  "start_url": ".",
   "icons": [
     {
       "src": "/images/favicons/apple-icon-180x180.png",
