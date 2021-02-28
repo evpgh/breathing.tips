@@ -20,20 +20,6 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  new RegExp('.+/css/.+'),
-  new workbox.strategies.CacheFirst({
-    cacheName: "css"
-  })
-);
-
-workbox.routing.registerRoute(
-  new RegExp('.+/fonts/.+'),
-  new workbox.strategies.CacheFirst({
-    cacheName: "fonts"
-  })
-);
-
-workbox.routing.registerRoute(
   new RegExp('.+/images/.+'),
   new workbox.strategies.CacheFirst({
     cacheName: "images"
@@ -41,7 +27,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  new RegExp('.+/js/.+'),
+  new RegExp('.js'),
   new workbox.strategies.CacheFirst({
     cacheName: "js"
   })
