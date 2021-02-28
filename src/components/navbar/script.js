@@ -13,7 +13,7 @@ $(function() {
      *-----------------------------------*/
     function autofix(){
         if ($(window).width() > 768) {
-         $('.nav-menu').addClass('fixed-top');
+         $('.nav-menu').addClass('d-none');
         }
         else
         {
