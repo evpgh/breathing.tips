@@ -5,7 +5,6 @@ import './socialbar.styles.css';
 export const Socialbar = () => {
     return (
         <div id="social">
-            <hr />
             <h1> Share with people you love </h1>
             <a className="resp-sharing-button__link text-center" href="https://twitter.com/intent/tweet/?text=%22The%20missing%20pillar%20in%20health%20is%20breath%22%0A%40MrJamesNestor%0A---%0A%F0%9F%98%A4%F0%9F%A7%98%20&amp;url=https%3A%2F%2Fbreathing.tips&amp;via=breathingtips&amp;hashtags=breathing,meditation" rel="noopener" aria-label="Twitter">
                 <div className="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" className="resp-sharing-button__icon resp-sharing-button__icon--solid">

@@ -89,23 +89,21 @@ const onSceneReady = (scene) => {
             document.getElementById("btn-close").style.display = "none";
             document.getElementById("share").style.display = "none";
             document.getElementById("instructions").style.display = "none";
-            setTimeout(() => {
-                idle = false;
-                sceneSettings(sceneURL).then((response) => {
-                    console.log(response);
-                    var cycle_length = response['hold_empty'] + response['inhale'] + response['hold_full'] + response['exhale']
-                    var offset = 1 // secs after exercise ends
-                    var full_length = (cycle_length * response['repeat'] + offset) * 1000
-                    breathingAnim = scene.beginAnimation(mySphere, 0, full_length, true);
-                    mySphere.animations.push(breathingAnimation);
-                    setTimeout(() => {
-                        document.getElementById("share").style.display = "block";
-                        document.getElementById("btn-close").style.display = "block";
-                        document.getElementById("instructions").style.display = "block";
-                        idle = true;
-                    }, full_length)
-                })
-            }, soundLength)
+            idle = false;
+            sceneSettings(sceneURL).then((response) => {
+                console.log(response);
+                var cycle_length = response['hold_empty'] + response['inhale'] + response['hold_full'] + response['exhale']
+                var offset = 1 // secs after exercise ends
+                var full_length = (cycle_length * response['repeat'] + offset) * 1000
+                breathingAnim = scene.beginAnimation(mySphere, 0, full_length, true);
+                mySphere.animations.push(breathingAnimation);
+                setTimeout(() => {
+                    document.getElementById("share").style.display = "block";
+                    document.getElementById("btn-close").style.display = "block";
+                    document.getElementById("instructions").style.display = "block";
+                    idle = true;
+                }, full_length)
+            })
         } else {
             breathingAnim.stop();
             document.getElementById("btn-close").style.display = "block";
@@ -231,8 +229,7 @@ class Practice extends React.Component {
             <div>
                 <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
                 <div id="instructions">
-                    <hr />
-                    <h1> Bring your attention to your breath </h1>
+                    <h1> Bring your attention <br /> to your breath </h1>
                     <p> tap the ball to start</p>
                 </div>
                 <div id="share">
