@@ -203,22 +203,38 @@ const onSceneReady = (scene) => {
     }
 };
 /**
- * Will run on every frame render.  We are spinning the box on y-axis.
+ * Will run on every frame render.
  */
 const onRender = (scene) => {
 
 };
-var Practice = function () {
-    Panelbear.trackPageview();
-    return (
-        <div>
-            <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
-            <div id="share-modal" className="mx-auto">
-                <Socialbar />
-                <a href="/"><span id="btn-close" className="ti-close gradient-fill ti-3x mr-3 center-block"></span></a>
+
+class Practice extends React.Component {
+    componentDidMount() {
+        var ref = document.getElementById("installComponent");
+        ref.getInstalledStatus();
+    }
+
+    componentDidMount() {
+        document.body.style.overflow = "hidden";
+    }
+
+    componentWillUnmount() {
+        document.body.style.overflow = "scroll";
+    }
+
+    render() {
+        Panelbear.trackPageview();
+        return (
+            <div>
+                <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
+                <div id="share-modal" className="mx-auto">
+                    <Socialbar />
+                    <a href="/"><span id="btn-close" className="ti-close gradient-fill ti-3x mr-3 center-block"></span></a>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Practice;
