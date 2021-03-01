@@ -2,8 +2,8 @@ import React from 'react';
 import './practice.styles.css';
 import {
     ArcRotateCamera, Vector3, MeshBuilder, PBRMaterial, Color3, Texture, DefaultRenderingPipeline, ColorCurves,
-    DepthOfFieldEffectBlurLevel, BlackAndWhitePostProcess, BlurPostProcess, PostProcessRenderEffect, ActionManager,
-    ExecuteCodeAction, Vector2, Animation, CubicEase, EasingFunction, CubeTexture, Mesh, BezierCurveEase, Sound
+    DepthOfFieldEffectBlurLevel, ActionManager, Engine, StandardMaterial,
+    ExecuteCodeAction, Animation, CubicEase, EasingFunction, CubeTexture, Mesh, BezierCurveEase, Sound
 } from '@babylonjs/core';
 import { Socialbar } from './../social/socialbar.component';
 
@@ -12,6 +12,13 @@ import SceneComponent from "./scene.component"; // uses above component in same 
 import * as Panelbear from "@panelbear/panelbear-js";
 
 const onSceneReady = (scene) => {
+    scene.audioPositioningRefreshRate = 5;
+    Engine.audioEngine.setGlobalVolume(0.5);
+    var musicBox = MeshBuilder.CreateBox("musicBox", {}, scene);
+    var invisibleMat = new StandardMaterial("Mat", scene);
+    invisibleMat.alpha = 0;
+    musicBox.material = invisibleMat;
+    musicBox.position = new Vector3(4, -4, 4);
     // Get exercise name
     var scene_name = window.location.pathname.split("/")[2]
     // Local development defers from production because netlify provides shortening of links
@@ -30,18 +37,25 @@ const onSceneReady = (scene) => {
     camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius;
     const canvas = scene.getEngine().getRenderingCanvas();
     camera.attachControl(canvas, true);
-    var mySphere = MeshBuilder.CreateSphere("mySphere", { diameter: 4, diameterX: 4, sideOrientation: Mesh.DOUBLESIDE, }, scene);
-    mySphere.scaling = new Vector3(0.2, 0.2, 0.2);
+    var mySphere = MeshBuilder.CreateSphere("mySphere", { segments: 128, diameter: 4, diameterX: 4, sideOrientation: Mesh.DOUBLESIDE, }, scene);
+    mySphere.scaling = new Vector3(0.4, 0.4, 0.4);
     var material = new PBRMaterial("air", scene);
-    material.invertRefractionY = true;
-    material.indexOfRefraction = 1;
-    material.bumpTexture = new Texture("/assets/normal.jpg", scene);
-    material.invertNormalMapX = true;
-    material.invertNormalMapY = true
-    material.bumpTexture.uScale = 2.0;
-    material.bumpTexture.vScale = 2.0;
-    material.alpha = 0.88;
-    material.albedoColor = new Color3(0.49, 0.73, 0.91);
+    // material.invertRefractionY = true;
+    // material.indexOfRefraction = 1;
+    // material.bumpTexture = new Texture("/assets/normal.jpg", scene);
+    // material.invertNormalMapX = true;
+    // material.invertNormalMapY = true
+    material.alpha = 0.48;
+    material.albedoColor = new Color3.FromHexString("#3C0876").toLinearSpace();
+    material.subSurface.minimumThickness = 0;
+    material.subSurface.maximumThickness = 4;
+    material.subSurface.volumeIndexOfRefraction = 0.95;
+    material.subSurface.isScatteringEnabled = true;
+    material.metallic = 0.15;
+    material.roughness = 0.190;
+
+    mySphere.material = material;
+    mySphere.renderingGroupId = 1;
 
     // Create default pipeline
     var defaultPipeline = new DefaultRenderingPipeline("default", true, scene, [camera]);
@@ -61,21 +75,9 @@ const onSceneReady = (scene) => {
     defaultPipeline.depthOfField.fStop = 2;
     defaultPipeline.depthOfField.focalLength = 6.34;
     defaultPipeline.depthOfField.focusDistance = 590;
-    defaultPipeline.samples = 128;
+    defaultPipeline.samples = 16;
     defaultPipeline.fxaaEnabled = true;
 
-    var blackAndWhite = new BlackAndWhitePostProcess("bw", 1.0, null, null, scene.getEngine(), false);
-    var horizontalBlur = new BlurPostProcess("hb", new Vector2(1.0, 0), 20, 1.0, null, null, scene.getEngine(), false);
-    var blackAndWhiteThenBlur = new PostProcessRenderEffect(scene.getEngine(), "blackAndWhiteThenBlur", function () { return [blackAndWhite, horizontalBlur] });
-
-
-    defaultPipeline.addEffect(blackAndWhiteThenBlur);
-
-    material.metallic = 0.8;
-    material.roughness = 0.1;
-
-    mySphere.material = material;
-    mySphere.renderingGroupId = 1;
 
     var tapSound = new Sound("tap", "/assets/audio/15853__zilverton__ultimate-subkick.wav", scene, null, { loop: false, autoplay: false })
     var breathingAnim = null;
@@ -83,8 +85,6 @@ const onSceneReady = (scene) => {
     mySphere.actionManager = new ActionManager(scene);
     mySphere.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, (function (mySphere) {
         tapSound.play()
-        var soundLength = 2894;
-
         if (idle === true) {
             document.getElementById("btn-close").style.display = "none";
             document.getElementById("share").style.display = "none";
@@ -122,7 +122,7 @@ const onSceneReady = (scene) => {
     cameraKeys.push({ frame: 90, value: new Vector3(-5, -1, 3) })
     initialCameraAnimation.setKeys(cameraKeys);
     camera.animations.push(initialCameraAnimation);
-    scene.beginAnimation(camera, 0, 90, false);
+    scene.beginAnimation(camera, 0, 60, false);
     idle = true;
     var easingFunction = new CubicEase();
     easingFunction.setEasingMode(EasingFunction.EASINGMODE_EASEOUT);
@@ -137,7 +137,6 @@ const onSceneReady = (scene) => {
         createBreathingAnimKeyFrames(breathingAnimation, response);
         // Env map texture
         addEnvironmentTexture(mySphere, scene, response);
-        var music = new Sound("Ambient", "/assets/audio/" + response.audio, scene, null, { loop: true, autoplay: true });
     })
     var a = 0
     // Idle material animation
@@ -146,7 +145,8 @@ const onSceneReady = (scene) => {
             var sphere = scene.meshes.find(element => element.name === 'mySphere')
             a += 0.05;
             var b = Math.cos(a) * 0.01
-            sphere.scaling = new Vector3(0.2 + b, 0.2 + b, 0.2 + b)
+            var v = new Vector3(0.2 + b, 0.2 + b, 0.2 + b)
+            sphere.scaling = v
         }
     }
 
@@ -165,12 +165,15 @@ const onSceneReady = (scene) => {
         skyboxMaterial.diffuseColor = new Color3(0, 0, 0);
         skyboxMaterial.specularColor = new Color3(0, 0, 0);
         skyboxMaterial.disableLighting = false;
-        skyboxMaterial.microSurface = 0.9;
+        skyboxMaterial.microSurface = 0.875;
         skybox.material = skyboxMaterial;
         skybox.renderingGroupId = 0;
 
         object.material.refractionTexture = hdrTexture;
         object.material.reflectionTexture = hdrTexture;
+        var music = new Sound("Ambient", "/assets/audio/" + recipe.audio, scene, null, { loop: true, autoplay: true });
+        // music.setPosition(new Vector3(20, 0, 0))
+        music.attachToMesh(musicBox);
     }
 
     var createBreathingAnimKeyFrames = function (breathingAnimation, recipe) {
@@ -210,11 +213,6 @@ const onRender = (scene) => {
 };
 
 class Practice extends React.Component {
-    componentDidMount() {
-        var ref = document.getElementById("installComponent");
-        ref.getInstalledStatus();
-    }
-
     componentDidMount() {
         document.body.style.overflow = "hidden";
     }
