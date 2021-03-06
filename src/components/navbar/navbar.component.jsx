@@ -32,7 +32,7 @@ class Navbar extends React.Component {
                                 <a className="navbar-brand d-none d-md-block d-xl-block" href="index.html">breathing.tips</a>
                                 <div id="navbar">
                                     <ul className="navbar-nav d-flex justify-content-center">
-                                        <li className="nav-item mx-auto"><a onClick={Panelbear.track("-exercises")} href="#exercises" className="nav-link">PRACTICE</a></li>
+                                        <li className="nav-item mx-auto"><a onClick={Panelbear.track("-exercises")} href="#tips" className="nav-link">PRACTICE</a></li>
                                         <li className="nav-item mx-auto"> <a onClick={Panelbear.track("-pwa-install")} href="/" className="nav-link"><pwa-install id="installComponent">INSTALL</pwa-install></a> </li>
                                         <li className="nav-item mx-auto"> <a onClick={this.share} className="nav-link" href="#social">SHARE</a> </li>
                                     </ul>

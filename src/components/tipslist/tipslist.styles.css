@@ -2,8 +2,14 @@
     flex-flow: column;
 }
 
-svg {
+.card-title a svg {
     float: right;
+}
+
+.CTA {
+    margin-top: -130px;
+    margin-left: -30px;
+    color: white;
 }
 
 .gradient-fill:before {
@@ -73,19 +79,6 @@ svg {
     background-color: #FFF;
 }
 
-.circle-icon {
-    width: 98px;
-    height: 98px;
-    border-radius: 50%;
-    background-color: #FFF;
-    color: #f5378e;
-    font-size: 48px;
-    text-align: center;
-    line-height: 80px;
-    font-weight: 300;
-    transition: all 0.3s ease;
-}
-
 @media (max-width:992px) {
     .circle-icon {
         width: 98px;
@@ -133,5 +126,5 @@ svg {
 }
 
 .card-body .card-title a {
-    color: #633991;
+    color: rgba(37, 73, 215, 0.75);
 }

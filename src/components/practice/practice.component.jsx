@@ -1,5 +1,6 @@
 import React from 'react';
 import './practice.styles.css';
+
 import {
     ArcRotateCamera, Vector3, MeshBuilder, PBRMaterial, Color3, Texture, DefaultRenderingPipeline, ColorCurves,
     DepthOfFieldEffectBlurLevel, ActionManager, Engine, StandardMaterial,
@@ -227,13 +228,13 @@ class Practice extends React.Component {
             <div>
                 <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
                 <div id="instructions">
-                    <h1> Bring your attention <br /> to your breath </h1>
+                    <h1> focus on <br /> your breath </h1>
                     <p> tap the ball to start</p>
                 </div>
                 <div id="share">
                     <Socialbar />
                 </div>
-                <a href="/"><span id="btn-close" className="ti-close ti-3x mr-3 center-block"></span></a>
+                <a href="/"><i id="btn-close" className="bi bi-x"></i></a>
             </div>
         )
     }
