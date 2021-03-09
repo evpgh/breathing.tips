@@ -1,11 +1,22 @@
 .Features {
+    padding-top: 2rem;
     flex-flow: column;
 }
 
-.GetStarted {
-    margin-top: -130px;
-    margin-bottom: 150px;
-    color: white;
+a.GetStarted {
+    width: 64px;
+    height: 64px;
+    z-index: 100;
+    position: absolute;
+    margin-top: -11rem;
+    text-align: center;
+    margin-left: -32px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.Features h2 {
+    padding: 1.5rem;
+    color: #154975;
 }
 
 .gradient-fill:before {
@@ -22,7 +33,6 @@
     border: 0;
     border-radius: 3px;
     transition: all 0.3s ease;
-    margin-bottom: 30px;
 }
 
 @media (max-width:767px) {
@@ -209,6 +219,8 @@
 
 .card-body {
     padding: 2.5rem;
+    min-height: 300px;
+    min-width: 300px;
 }
 
 .btn-primary {
@@ -222,4 +234,38 @@
     background: -webkit-linear-gradient(45deg, #5B86E50A 0%, #5B86E5 100%);
     background: linear-gradient(45deg, #5B86E50A 0%, #5B86E5 100%);
     border: none !important;
+}
+
+.horizontal-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+}
+
+.horizontal-scroll:before,
+.horizontal-scroll:after {
+    content: '';
+    width: 10px;
+}
+
+.horizontal-scroll>li:last-child {
+    margin-right: 20px;
+}
+
+.horizontal-scroll>li,
+.card {
+    flex: 0 0 auto;
+    max-width: 300px;
+    margin: 1rem;
+}
+
+.no-scrollbar {
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }

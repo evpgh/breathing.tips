@@ -1,7 +1,7 @@
 header {
     text-align: center;
     color: #FFF;
-    padding-bottom: 80%;
+    padding-bottom: 50%;
 }
 
 header a {
@@ -52,13 +52,14 @@ h2 {
     opacity: 0.4;
     overflow: hidden;
     position: absolute;
+    padding-bottom: 20%;
 }
 
 .img-holder img {
     animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
-    box-shadow: 0px 60px 70px -48px rgba(37, 73, 215, 0.75);
-    -webkit-box-shadow: 0px 60px 70px -48px rgba(37, 73, 215, 0.75);
-    -moz-box-shadow: 0px 60px 70px -48px rgba(37, 73, 215, 0.75);
+    box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
+    -webkit-box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
+    -moz-box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
     border-radius: 50%;
 }
 
@@ -81,7 +82,6 @@ h2 {
 
 @media (max-width:1740px) {
     .img-holder {
-        padding-bottom: 52%;
         margin-top: -14rem !important;
     }
 
@@ -90,13 +90,12 @@ h2 {
     }
 
     header {
-        padding-bottom: 80%;
+        padding-bottom: 50%;
     }
 }
 
 @media (max-width:1500px) {
     .img-holder {
-        padding-bottom: 55%;
         margin-top: -14rem !important;
     }
 
@@ -105,14 +104,13 @@ h2 {
     }
 
     header {
-        padding-bottom: 80%;
+        padding-bottom: 60%;
     }
 }
 
 
 @media (max-width:1200px) {
     .img-holder {
-        padding-bottom: 63%;
         margin-top: -14rem !important;
     }
 
@@ -131,7 +129,6 @@ h2 {
     }
 
     .img-holder {
-        padding-bottom: 72%;
         margin-top: -14rem !important;
     }
 

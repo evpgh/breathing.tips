@@ -14,20 +14,6 @@
         "color": "#ED6A5A"
     },
     {
-        "id": "bb01",
-        "inhale": 4,
-        "hold_full": 4,
-        "exhale": 4,
-        "hold_empty": 4,
-        "repeat": 20,
-        "envmap": "/assets/focus.env",
-        "name": "box breathing",
-        "description": "Box Breathing technique popularized by ex Navy SEAL Mark Divine increases mental clarity, energy and focus. He advices to practice it daily just after waking up to experience the physical, psychological and emotional benefits.<a href=\"https://www.medicalnewstoday.com/articles/321805\">[8]</a>",
-        "url": "box-breathing",
-        "audio": "bbc_prairie---_nhu0507105.mp3",
-        "color": "#08A045"
-    },
-    {
         "id": "aw01",
         "inhale": 5,
         "hold_full": 2,
@@ -42,6 +28,20 @@
         "color": "#6BBF59"
     },
     {
+        "id": "bb01",
+        "inhale": 4,
+        "hold_full": 4,
+        "exhale": 4,
+        "hold_empty": 4,
+        "repeat": 20,
+        "envmap": "/assets/focus.env",
+        "name": "box breathing",
+        "description": "Box Breathing technique popularized by ex Navy SEAL Mark Divine increases mental clarity, energy and focus. He advices to practice it daily just after waking up to experience the physical, psychological and emotional benefits.<a href=\"https://www.medicalnewstoday.com/articles/321805\">[8]</a>",
+        "url": "box-breathing",
+        "audio": "bbc_prairie---_nhu0507105.mp3",
+        "color": "#08A045"
+    },
+    {
         "id": "r01",
         "inhale": 4,
         "hold_full": 7,
@@ -50,7 +50,7 @@
         "repeat": 12,
         "envmap": "/assets/sun_b.env",
         "name": "relax deeply",
-        "description": "This deeply relaxing technique was introduced by Dr. Andrew Weil - called 4-7-8 breathing technique, it is effective in reducing dyspnea, anxiety and depression<a href=\"https://www.ijhsr.org/IJHSR_Vol.9_Issue.5_May2019/32.pdf\">[5]</a>",
+        "description": "This deeply relaxing technique was introduced by Dr. Andrew Weil - called 4-7-8 breathing technique, it is effective in reducing dyspnea, anxiety and depression<a href=\"https://www.ijhsr.org/IJHSR_Vol.9_Issue.5_May2019/32.pdf\">[5]</a><br /><br /><br />",
         "url": "relax",
         "audio": "bbc_farmstead-_nhu0506113.mp3",
         "color": "#0B6E4F"
@@ -64,7 +64,7 @@
         "repeat": 100,
         "envmap": "/assets/sunset_b.env",
         "name": "meditate",
-        "description": "Introduced as part of his yogic teachings Sudarshan Kriya yogic breathing increases parasympathetic drive, calms stress response systems and neuroendrocrine release of hormones<a href=\"https://pubmed.ncbi.nlm.nih.gov/15750381/\">[9]</a>",
+        "description": "Introduced as part of his yogic teachings Sudarshan Kriya yogic breathing increases parasympathetic drive, calms stress response systems and neuroendrocrine release of hormones<a href=\"https://pubmed.ncbi.nlm.nih.gov/15750381/\">[9]</a><br /><br /><br /><br /><br />",
         "url": "meditate",
         "audio": "bbc_steppe---s_nhu0506106.mp3",
         "color": "#FE9000"
