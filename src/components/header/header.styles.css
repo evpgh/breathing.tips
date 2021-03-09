@@ -11,16 +11,22 @@ header a {
 }
 
 .bg-gradient {
-    background-image: -moz-linear-gradient(-45deg, rgba(37, 73, 215, 0.75) 0%, rgba(225, 116, 74, 0.75) 100%);
-    background-image: -webkit-linear-gradient(-45deg, rgba(37, 73, 215, 0.75) 0%, rgba(225, 116, 74, 0.75) 100%);
-    background-image: -ms-linear-gradient(-45deg, rgba(37, 73, 215, 0.75) 0%, rgba(225, 116, 74, 0.75) 100%);
-    background-image: linear-gradient(-45deg, rgba(37, 73, 215, 0.75) 0%, rgba(225, 116, 74, 0.75) 100%);
+    background-image: -moz-linear-gradient(-135deg, rgb(0, 90, 167) 0%, rgb(255, 253, 228) 100%);
+    background-image: -webkit-linear-gradient(-135deg, rgb(0, 90, 167) 0%, rgb(255, 253, 228) 100%);
+    background-image: -ms-linear-gradient(-135deg, rgb(0, 90, 167) 0%, rgb(255, 253, 228) 100%);
+    background-image: linear-gradient(-135deg, rgb(0, 90, 167) 0%, rgb(255, 253, 228) 100%);
+}
+
+.border-radius-bottom {
+    border-radius: 0px 0px 75px 75px;
+    filter: drop-shadow(8px -9px 2rem #005aa75e);
 }
 
 .title {
     top: 5%;
     left: 5%;
     text-align: left;
+    padding-top: 50px
 }
 
 h1 {
@@ -39,7 +45,7 @@ h2 {
     font-weight: 300;
     max-width: 800px;
     margin: 0 auto;
-    color: rgb(212, 212, 212);
+    color: rgb(255, 255, 255);
 }
 
 .img-holder {

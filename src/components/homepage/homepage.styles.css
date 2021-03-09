@@ -6,12 +6,13 @@ body {
 }
 
 a {
-    color: #e38cb7;
+    color: #196aae;
+    ;
 }
 
 a:hover,
 a:focus {
-    color: #d6619c;
+    color: #f7f7f0;
 }
 
 h1 {

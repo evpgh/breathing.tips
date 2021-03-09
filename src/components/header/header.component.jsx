@@ -3,7 +3,7 @@ import './header.styles.css'
 
 export const Header = () => {
     return (
-        <div className="container bg-gradient">
+        <div className="container bg-gradient border-radius-bottom">
             <header>
                 <div className="container pb-5 title">
                     <h1>experience</h1>

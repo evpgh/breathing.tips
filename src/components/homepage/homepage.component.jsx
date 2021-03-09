@@ -15,8 +15,8 @@ export const Homepage = () => {
             <Navbar />
             <Header />
             <TipsList />
-            <Quote />
             <Footer />
+            <Quote />
         </div>
     )
 }

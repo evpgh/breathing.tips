@@ -2,13 +2,9 @@
     flex-flow: column;
 }
 
-.card-title a svg {
-    float: right;
-}
-
-.CTA {
+.GetStarted {
     margin-top: -130px;
-    margin-left: -30px;
+    margin-bottom: 150px;
     color: white;
 }
 
@@ -23,7 +19,6 @@
 }
 
 .card.features {
-    background-color: #faf6fb;
     border: 0;
     border-radius: 3px;
     transition: all 0.3s ease;
@@ -58,8 +53,9 @@
     }
 }
 
-.card-text {
+.card p {
     font-size: 14px;
+    color: rgb(240, 243, 255);
 }
 
 .card:hover {
@@ -126,5 +122,104 @@
 }
 
 .card-body .card-title a {
-    color: rgba(37, 73, 215, 0.75);
+    color: rgb(240, 243, 255);
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.card {
+    border-radius: 3rem;
+    border: none !important;
+}
+
+.anti-stress {
+    background: -moz-linear-gradient(-135deg, #ED6A5A 0%, #ED6A5A96 100%);
+    background: -webkit-linear-gradient(-135deg, #ED6A5A 0%, #ED6A5A96 100%);
+    background: linear-gradient(-135deg, #ED6A5A 0%, #ED6A5A96 100%);
+    box-shadow: 5px 5px 20px #ED6A5A96;
+    -webkit-box-shadow: 5px 5px 20px #ED6A5A96;
+    -moz-box-shadow: 5px 5px 20px #ED6A5A96;
+}
+
+.box-breathing {
+    background: -moz-linear-gradient(-135deg, #08A045 0%, #08A04599 100%);
+    background: -webkit-linear-gradient(-135deg, #08A045 0%, #08A04599 100%);
+    background: linear-gradient(-135deg, #08A045 0%, #08A04599 100%);
+    box-shadow: 5px 5px 20px #08A04599;
+    -webkit-box-shadow: 5px 5px 20px #08A04599;
+    -moz-box-shadow: 5px 5px 20px #08A04599;
+}
+
+.relax {
+    background: -moz-linear-gradient(-135deg, #0B6E4F 0%, #0B6E4F99 100%);
+    background: -webkit-linear-gradient(-135deg, #0B6E4F 0%, #0B6E4F99 100%);
+    background: linear-gradient(-135deg, #0B6E4F 0%, #0B6E4F99 100%);
+    box-shadow: 5px 5px 20px #0B6E4F99;
+    -webkit-box-shadow: 5px 5px 20px #0B6E4F99;
+    -moz-box-shadow: 5px 5px 20px #0B6E4F99;
+}
+
+.awake {
+    background: -moz-linear-gradient(-135deg, #6BBF59 0%, #6BBF5999 100%);
+    background: -webkit-linear-gradient(-135deg, #6BBF59 0%, #6BBF5999 100%);
+    background: linear-gradient(-135deg, #6BBF59 0%, #6BBF5999 100%);
+    box-shadow: 5px 5px 20px #6BBF5999;
+    -webkit-box-shadow: 5px 5px 20px #6BBF5999;
+    -moz-box-shadow: 5px 5px 20px #6BBF5999;
+}
+
+.meditate {
+    background: -moz-linear-gradient(-135deg, #FE9000 0%, #FE900099 100%);
+    background: -webkit-linear-gradient(-135deg, #FE9000 0%, #FE900099 100%);
+    background: linear-gradient(-135deg, #FE9000 0%, #FE900099 100%);
+    box-shadow: 5px 5px 20px #FE900099;
+    -webkit-box-shadow: 5px 5px 20px #FE900099;
+    -moz-box-shadow: 5px 5px 20px #FE900099;
+}
+
+.anti-stress .btn-primary {
+    background: -moz-linear-gradient(-135deg, #ED6A5A 0%, #ED5A5A 100%);
+    background: -webkit-linear-gradient(-135deg, #ED6A5A 0%, #ED5A5A 100%);
+    background: linear-gradient(-135deg, #ED6A5A 0%, #ED5A5A 100%);
+}
+
+.box-breathing .btn-primary {
+    background: -moz-linear-gradient(-135deg, #08B045 0%, #08A045 100%);
+    background: -webkit-linear-gradient(-135deg, #08B045 0%, #08A045 100%);
+    background: linear-gradient(-135deg, #08B045 0%, #08A045 100%);
+}
+
+.relax .btn-primary {
+    background: -moz-linear-gradient(-135deg, #0B7E4F 0%, #0B6E4F 100%);
+    background: -webkit-linear-gradient(-135deg, #0B7E4F 0%, #0B6E4F 100%);
+    background: linear-gradient(-135deg, #0B7E4F 0%, #0B6E4F 100%);
+}
+
+.awake .btn-primary {
+    background: -moz-linear-gradient(-135deg, #6BAF5959 0%, #6BBF59 100%);
+    background: -webkit-linear-gradient(-135deg, #6BAF5959 0%, #6BBF59 100%);
+    background: linear-gradient(-135deg, #6BAF5959 0%, #6BBF59 100%);
+}
+
+.meditate .btn-primary {
+    background: -moz-linear-gradient(-135deg, #FE900099 0%, #FE9000 100%);
+    background: -webkit-linear-gradient(-135deg, #FE900099 0%, #FE9000 100%);
+    background: linear-gradient(-135deg, #FE900099 0%, #FE9000 100%);
+}
+
+.card-body {
+    padding: 2.5rem;
+}
+
+.btn-primary {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 30px;
+    margin-top: 50px;
+    width: 100%;
+    background: -moz-linear-gradient(45deg, #5B86E50A 0%, #5B86E5 100%);
+    background: -webkit-linear-gradient(45deg, #5B86E50A 0%, #5B86E5 100%);
+    background: linear-gradient(45deg, #5B86E50A 0%, #5B86E5 100%);
+    border: none !important;
 }
