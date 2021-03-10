@@ -1,6 +1,8 @@
 .Features {
     padding-top: 2rem;
     flex-flow: column;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
 }
 
 a.GetStarted {
@@ -251,12 +253,11 @@ a.GetStarted {
     width: 10px;
 }
 
-.horizontal-scroll>li:last-child {
-    margin-right: 20px;
+.horizontal-scroll:last-child {
+    padding-right: 20px;
 }
 
-.horizontal-scroll>li,
-.card {
+.horizontal-scroll .card {
     flex: 0 0 auto;
     max-width: 300px;
     margin: 1rem;

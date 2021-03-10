@@ -32,7 +32,7 @@ class TipsList extends React.Component {
 
     render() {
         return (
-            <div className="row">
+            <div>
                 <div className="Features mb-5 mt-5 col-12">
                     <div className="text-center">
                         <a href="/#tips" className="GetStarted">

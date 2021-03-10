@@ -19,7 +19,7 @@ header a {
 
 .border-radius-bottom {
     border-radius: 0px 0px 75px 75px;
-    filter: drop-shadow(8px -9px 2rem #005aa75e);
+    filter: drop-shadow(0px -9px 2rem #005aa75e);
 }
 
 .title {
