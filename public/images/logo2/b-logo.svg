@@ -6,13 +6,59 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="1024.0px"
    height="1024.0px"
    viewBox="0 0 1024.0 1024.0"
    version="1.1"
-   id="SVGRoot">
+   id="SVGRoot"
+   sodipodi:docname="b-logo.svg"
+   inkscape:version="1.0.2 (1.0.2+r75+1)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1893"
+     inkscape:window-height="1068"
+     id="namedview88"
+     showgrid="false"
+     inkscape:zoom="0.60839844"
+     inkscape:cx="207.10112"
+     inkscape:cy="512"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="SVGRoot" />
   <defs
      id="defs10">
+    <linearGradient
+       id="linearGradient933">
+      <stop
+         style="stop-color:#fffde4;stop-opacity:0.62383938"
+         offset="0"
+         id="stop929" />
+      <stop
+         style="stop-color:#005aa7;stop-opacity:0.98823529"
+         offset="1"
+         id="stop931" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient927">
+      <stop
+         style="stop-color:#fffde4;stop-opacity:1"
+         offset="0"
+         id="stop923" />
+      <stop
+         style="stop-color:#005aa7;stop-opacity:0.54725051"
+         offset="1"
+         id="stop925" />
+    </linearGradient>
     <linearGradient
        id="linearGradient1190">
       <stop
@@ -105,6 +151,16 @@
          stdDeviation="2.3343291"
          id="feGaussianBlur1566" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient933"
+       id="linearGradient921"
+       x1="129.32965"
+       y1="535.72235"
+       x2="419.29504"
+       y2="535.72235"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2455109,0,0,1.1536596,-659.19691,-106.449)" />
   </defs>
   <metadata
      id="metadata13">
@@ -114,13 +170,22 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <rect
+     style="fill:url(#linearGradient921);fill-opacity:1;fill-rule:evenodd;stroke-width:1.19871"
+     id="rect90"
+     width="361.15503"
+     height="1021.1706"
+     x="-498.11542"
+     y="1.0069745"
+     transform="scale(-1,1)" />
   <g
      id="layer1"
-     style="display:inline">
+     style="display:inline"
+     transform="translate(-3.8154071,45.783957)">
     <ellipse
        style="opacity:1;fill:url(#linearGradient861);fill-opacity:1;fill-rule:evenodd;stroke-width:0.767957"
        id="path26"
@@ -130,19 +195,9 @@
        ry="369.79398" />
   </g>
   <g
-     id="layer4"
-     style="display:inline;filter:url(#filter1564)">
-    <rect
-       style="display:inline;opacity:1;fill:url(#linearGradient1192);fill-opacity:1;stroke-width:1.34319"
-       id="rect1182"
-       width="180.41382"
-       height="880"
-       x="139.58618"
-       y="80" />
-  </g>
-  <g
      id="layer2"
-     style="display:inline;opacity:0.998">
+     style="display:inline;opacity:0.998"
+     transform="matrix(0.98968238,0,0,0.99231066,3.3753364,51.686581)">
     <ellipse
        style="mix-blend-mode:normal;fill:url(#linearGradient1119);fill-opacity:1;fill-rule:evenodd;stroke-width:0.772843"
        id="path26-5"
@@ -153,7 +208,8 @@
   </g>
   <g
      id="layer3"
-     style="display:inline;opacity:0.330971">
+     style="display:inline;opacity:0.330971"
+     transform="translate(110.64466,238.45837)">
     <circle
        style="display:inline;opacity:0.998;mix-blend-mode:normal;fill:url(#radialGradient1153);fill-opacity:1;fill-rule:evenodd;stroke-width:0.85345"
        id="path26-5-9"
