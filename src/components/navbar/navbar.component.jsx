@@ -5,19 +5,14 @@ import '@pwabuilder/pwainstall'
 import * as Panelbear from "@panelbear/panelbear-js";
 
 class Navbar extends React.Component {
-    componentDidMount() {
-        var ref = document.getElementById("installComponent");
-        ref.getInstalledStatus();
-    }
-
     share() {
-        Panelbear.track("-share")
+        Panelbear.track("share")
         const shareData = {
             title: 'breathing.tips',
-            text: 'TOP 5 breathing exercises',
+            text: 'experience breathing correctly',
             url: 'https://breathing.tips',
         }
-        if (navigator.canShare) {
+        if (window.navigator.share) {
             navigator.share(shareData).then(Panelbear.track("share-success"))
         }
     }
@@ -32,9 +27,9 @@ class Navbar extends React.Component {
                                 <a className="navbar-brand d-none d-md-block d-xl-block" href="index.html">breathing.tips</a>
                                 <div id="navbar">
                                     <ul className="navbar-nav d-flex justify-content-center">
-                                        <li className="nav-item mx-auto"><a onClick={Panelbear.track("-exercises")} href="#tips" className="nav-link">PRACTICE</a></li>
-                                        <li className="nav-item mx-auto"> <a onClick={Panelbear.track("-pwa-install")} href="/" className="nav-link"><pwa-install id="installComponent">INSTALL</pwa-install></a> </li>
-                                        <li className="nav-item mx-auto"> <a onClick={this.share} className="nav-link" href="#social">SHARE</a> </li>
+                                        <li className="nav-item mx-auto"><a onClick={Panelbear.track("-routine")} href="#routine" className="nav-link">ROUTINE</a></li>
+                                        <li className="nav-item mx-auto"><a onClick={Panelbear.track("-discover")} href="#discover" className="nav-link">DISCOVER</a></li>
+                                        <li className="nav-item mx-auto d-md-none"> <a onClick={this.share()} href="#share" className="nav-link">SHARE</a> </li>
                                     </ul>
                                 </div>
                             </nav>

@@ -35,7 +35,7 @@ class TipsList extends React.Component {
             <div>
                 <div className="Features mb-5 mt-5 col-12">
                     <div className="text-center">
-                        <a href="/#tips" className="GetStarted">
+                        <a href="/#routine" className="GetStarted">
                             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" className="bi bi-arrow-down-short" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z" />
                             </svg>
@@ -44,9 +44,8 @@ class TipsList extends React.Component {
                 <h2 id="exercises" className="mx-auto mb-4 text-center"> top 5 breathing exercises</h2> */}
                     </div>
                     <div>
-                        <span id="tips"></span>
                         <div>
-                            <div className="container"><h2 className="ml-3"> Daily routine </h2></div>
+                            <div className="container" id="routine"><h2 className="ml-3"> Daily routine </h2></div>
                             <ul className="horizontal-scroll no-scrollbar">
                                 {this.state.tips.map(tip => (
                                     <div className={tip.url + " card mt-4 mb-4 gradient-fill" + (this.routines.tipsUrls.indexOf(tip.url) > -1 ? "" : " d-none")} key={tip.id}>
@@ -64,7 +63,7 @@ class TipsList extends React.Component {
                             </ul>
                         </div>
                         <div>
-                            <div className="container"><h2 className="ml-3"> Discover </h2></div>
+                            <div className="container" id="discover"><h2 className="ml-3"> Discover </h2></div>
                             <ul className="horizontal-scroll no-scrollbar">
                                 {this.state.tips.map(tip => (
                                     <div className={tip.url + " card row mt-4 mb-4 gradient-fill" + (this.routines.tipsUrls.indexOf(tip.url) < 0 ? "" : " d-none")} key={tip.id}>

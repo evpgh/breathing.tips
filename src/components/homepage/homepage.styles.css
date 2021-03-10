@@ -3,6 +3,8 @@
 body {
     /* font-family: 'Rubik', sans-serif; */
     position: relative;
+    overflow: auto;
+    overscroll-behavior: contain;
 }
 
 a {

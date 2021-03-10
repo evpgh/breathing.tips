@@ -2,6 +2,8 @@ header {
     text-align: center;
     color: #FFF;
     padding-bottom: 50%;
+    margin: 0;
+    overflow-y: scroll;
 }
 
 header a {
@@ -164,6 +166,6 @@ h2 {
     }
 
     header {
-        padding-bottom: 130%;
+        padding-bottom: 100%;
     }
 }
