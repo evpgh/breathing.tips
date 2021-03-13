@@ -50,7 +50,7 @@
         "repeat": 12,
         "envmap": "/assets/sun_b.env",
         "name": "relax deeply",
-        "description": "This deeply relaxing technique was introduced by Dr. Andrew Weil - called 4-7-8 breathing technique, it is effective in reducing dyspnea, anxiety and depression<a href=\"https://www.ijhsr.org/IJHSR_Vol.9_Issue.5_May2019/32.pdf\">[5]</a><br /><br /><br />",
+        "description": "This deeply relaxing technique was introduced by Dr. Andrew Weil - called 4-7-8 breathing technique, it is effective in reducing dyspnea, anxiety and depression<a href=\"https://www.ijhsr.org/IJHSR_Vol.9_Issue.5_May2019/32.pdf\">[5]</a>",
         "url": "relax",
         "audio": "bbc_farmstead-_nhu0506113.mp3",
         "color": "#0B6E4F"
@@ -64,7 +64,7 @@
         "repeat": 100,
         "envmap": "/assets/sunset_b.env",
         "name": "meditate",
-        "description": "Introduced as part of his yogic teachings Sudarshan Kriya yogic breathing increases parasympathetic drive, calms stress response systems and neuroendrocrine release of hormones<a href=\"https://pubmed.ncbi.nlm.nih.gov/15750381/\">[9]</a><br /><br /><br /><br /><br />",
+        "description": "Introduced as part of his yogic teachings Sudarshan Kriya yogic breathing increases parasympathetic drive, calms stress response systems and neuroendrocrine release of hormones<a href=\"https://pubmed.ncbi.nlm.nih.gov/15750381/\">[9]</a>",
         "url": "meditate",
         "audio": "bbc_steppe---s_nhu0506106.mp3",
         "color": "#FE9000"

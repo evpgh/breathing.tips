@@ -13,3 +13,7 @@
     background-image: linear-gradient(-135deg, rgb(0, 90, 167) 0%, rgb(251, 250, 241) 100%);
     ;
 }
+
+#quote {
+    margin-top: 50px;
+}

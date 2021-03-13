@@ -1,0 +1,28 @@
+.sign-in {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 150px;
+}
+
+button {
+    width: 80%;
+}
+
+.btn-light {
+    color: black;
+    margin-top: 10px;
+    background-color: transparent;
+    // border-color: rgba(255, 255, 255, 0.828) !important;
+    border: 1px solid rgb(155, 155, 155);
+}
+
+input {
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.828) !important;
+    // background-color: transparent !important;
+    border-radius: 3px !important;
+}
+
+label {
+    color: white !important;
+}

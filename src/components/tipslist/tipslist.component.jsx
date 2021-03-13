@@ -5,13 +5,15 @@ import './tipslist.styles.css'
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ArrowDownIcon from '../icons/down/ArrowDownIcon.component';
-
+import JoinModal from '../sign-in/join-modal.component';
+import LoginControl from './coming-soon-button.component';
 class TipsList extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            tips: []
+            tips: [],
+            signInOpen: false
         };
 
         this.routines = {
@@ -31,16 +33,18 @@ class TipsList extends React.Component {
         this.props.history.push(path)
     }
 
+    openModal = () => this.setState({ signInOpen: true });
+    closeModal = () => this.setState({ signInOpen: false });
+
     render() {
         return (
             <div>
+                <JoinModal show={this.state.signInOpen} close={this.closeModal} />
                 <div className="Features mb-5 mt-5 col-xs-12">
                     <div className="text-center">
                         <a href="/#routine" className="GetStarted">
                             <ArrowDownIcon className="x3" />
                         </a>
-                        {/* <a className="mx-auto mt-5 mb-5" href="#exercises">PRACTICE NOW</a>
-                <h2 id="exercises" className="mx-auto mb-4 text-center"> top 5 breathing exercises</h2> */}
                     </div>
                     <div>
                         <div className="container tight">
@@ -77,6 +81,19 @@ class TipsList extends React.Component {
                                         </div>
                                     </div>
                                 ))}
+
+                                <div className="custom card row mt-4 mb-4 gradient-fill" key="customize-card">
+                                    <div className="card-body">
+                                        <h5 className="card-title">
+                                            <Link to={"/"}>
+                                                create yours
+                                            </Link>
+                                        </h5>
+                                        <p> Pick from variety of high quality environments and sounds. Fine tune each exercise according to your lung capacity or create a completely new one and share it with the world. <br /><br /> Sign up now and be the first to try it! </p>
+                                        {/* <Button variant="primary" onClick={this.openModal}>SIGN UP</Button> */}
+                                        <LoginControl onClick={this.openModal} />
+                                    </div>
+                                </div>
                             </ul>
                         </div>
                     </div >

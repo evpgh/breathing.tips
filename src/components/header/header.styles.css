@@ -3,7 +3,6 @@ header {
     color: #FFF;
     padding-bottom: 50%;
     margin: 0;
-    overflow-y: scroll;
 }
 
 header a {
@@ -64,6 +63,9 @@ h2 {
 }
 
 .img-holder img {
+    -webkit-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
+    -moz-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
+    -o-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
     animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
     box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
     -webkit-box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);

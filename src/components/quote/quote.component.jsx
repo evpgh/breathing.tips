@@ -3,7 +3,7 @@ import './quote.styles.css';
 
 export const Quote = () => {
     return (
-        <div className="section bg-gradient-light border-radius-top">
+        <div className="section bg-gradient-light border-radius-top" id="quote">
             <div className="col-lg-12 align-items-center text-center">
                 <h3 className="pt-5 pb-5">The missing pillar in health is breath</h3>
                 <p className="tagline pb-5">

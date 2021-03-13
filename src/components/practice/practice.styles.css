@@ -13,9 +13,7 @@ canvas {
     background-color: #faf6fb;
 }
 
-#share {
-    top: 0%;
-    left: 0%;
+#sign-in {
     position: absolute;
     color: white !important;
     font-size: 1.2rem;
@@ -34,7 +32,7 @@ canvas {
     display: block;
 }
 
-p {
+#instructions p {
     color: rgba(255, 255, 255, 0.287);
 }
 

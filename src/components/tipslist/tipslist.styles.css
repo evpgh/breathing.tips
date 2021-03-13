@@ -66,6 +66,7 @@ a.GetStarted {
 .card p {
     font-size: 14px;
     color: rgb(240, 243, 255);
+    min-height: 240px;
 }
 
 .card:hover {
@@ -187,6 +188,15 @@ a.GetStarted {
     -moz-box-shadow: 5px 5px 20px #FE900099;
 }
 
+.custom {
+    background: -moz-linear-gradient(-135deg, #391463 0%, #39146399 100%);
+    background: -webkit-linear-gradient(-135deg, #391463 0%, #39146399 100%);
+    background: linear-gradient(-135deg, #391463 0%, #39146399 100%);
+    box-shadow: 5px 5px 20px #39146399;
+    -webkit-box-shadow: 5px 5px 20px #39146399;
+    -moz-box-shadow: 5px 5px 20px #39146399;
+}
+
 .anti-stress .btn-primary {
     background: -moz-linear-gradient(-135deg, #ED6A5A 0%, #ED5A5A 100%);
     background: -webkit-linear-gradient(-135deg, #ED6A5A 0%, #ED5A5A 100%);
@@ -215,6 +225,12 @@ a.GetStarted {
     background: -moz-linear-gradient(-135deg, #FE900099 0%, #FE9000 100%);
     background: -webkit-linear-gradient(-135deg, #FE900099 0%, #FE9000 100%);
     background: linear-gradient(-135deg, #FE900099 0%, #FE9000 100%);
+}
+
+.custom .btn-primary {
+    background: -moz-linear-gradient(-135deg, #39146399 0%, #391463 100%);
+    background: -webkit-linear-gradient(-135deg, #39146399 0%, #391463 100%);
+    background: linear-gradient(-135deg, #39146399 0%, #391463 100%);
 }
 
 .card-body {

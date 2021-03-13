@@ -1,7 +1,7 @@
 import React from 'react';
 import './reset.css';
 import './homepage.styles.css';
-import { Navbar } from './../navbar/navbar.component';
+import Navbar from './../navbar/navbar.component';
 import { Header } from './../header/header.component';
 import { Footer } from './../footer/footer.component';
 import { Quote } from './../quote/quote.component';
