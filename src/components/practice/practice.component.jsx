@@ -1,6 +1,5 @@
 import React from 'react';
 import './practice.styles.css';
-import './../buttons/back/ArrowLeftIcon.component';
 
 import {
     ArcRotateCamera, Vector3, MeshBuilder, PBRMaterial, Color3, Texture, DefaultRenderingPipeline, ColorCurves,
@@ -12,7 +11,7 @@ import { Socialbar } from './../social/socialbar.component';
 import SceneComponent from "./scene.component"; // uses above component in same directory
 
 import * as Panelbear from "@panelbear/panelbear-js";
-import ArrowLeftIcon from './../buttons/back/ArrowLeftIcon.component';
+import ArrowLeftIcon from './../icons/back/ArrowLeftIcon.component';
 import { Link } from 'react-router-dom';
 
 const onSceneReady = (scene) => {
@@ -231,11 +230,12 @@ class Practice extends React.Component {
             <div>
                 <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
                 <div id="instructions">
-                    <Link to="/" className="x3"><ArrowLeftIcon></ArrowLeftIcon></Link>
+                    <Link to="/" id="btn-close" className="x3"><ArrowLeftIcon></ArrowLeftIcon></Link>
                     <h2> focus on <br /> your breath </h2>
                     <h6> tap the ball to start</h6>
                 </div>
                 <div id="share">
+                    <Link to="/" id="btn-close" className="x3"><ArrowLeftIcon></ArrowLeftIcon></Link>
                     <Socialbar />
                 </div>
             </div>
