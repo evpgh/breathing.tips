@@ -270,3 +270,7 @@ a.GetStarted {
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+.x3 {
+    font-size: 3rem;
+}

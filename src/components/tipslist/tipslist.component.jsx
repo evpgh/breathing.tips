@@ -4,6 +4,7 @@ import DOMPurify from 'dompurify';
 import './tipslist.styles.css'
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import ArrowDownIcon from '../icons/down/ArrowDownIcon.component';
 
 class TipsList extends React.Component {
     constructor() {
@@ -36,9 +37,7 @@ class TipsList extends React.Component {
                 <div className="Features mb-5 mt-5 col-12">
                     <div className="text-center">
                         <a href="/#routine" className="GetStarted">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" className="bi bi-arrow-down-short" viewBox="0 0 16 16">
-                                <path fillRule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z" />
-                            </svg>
+                            <ArrowDownIcon className="x3" />
                         </a>
                         {/* <a className="mx-auto mt-5 mb-5" href="#exercises">PRACTICE NOW</a>
                 <h2 id="exercises" className="mx-auto mb-4 text-center"> top 5 breathing exercises</h2> */}

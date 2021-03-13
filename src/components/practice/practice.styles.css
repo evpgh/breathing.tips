@@ -20,17 +20,16 @@ canvas {
     color: white !important;
     font-size: 1.2rem;
     width: 95%;
-    top: 5%;
+    top: 10%;
     left: 5%;
     display: none;
 }
 
 #instructions {
-    top: 5%;
+    top: 10%;
     left: 5%;
     position: absolute;
     color: white !important;
-    font-size: 1.2rem;
     width: 95%;
     display: block;
 }
@@ -43,11 +42,7 @@ hr {
     border-top: 5px solid rgba(255, 255, 255, 0.287);
 }
 
-#btn-close {
-    position: absolute;
+.x3 {
     font-size: 3rem;
-    width: 60px;
-    bottom: 5%;
-    left: 5%;
     color: rgba(255, 255, 255, 0.287);
 }
