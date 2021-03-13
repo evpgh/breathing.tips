@@ -34,7 +34,7 @@ class TipsList extends React.Component {
     render() {
         return (
             <div>
-                <div className="Features mb-5 mt-5 col-12">
+                <div className="Features mb-5 mt-5 col-xs-12">
                     <div className="text-center">
                         <a href="/#routine" className="GetStarted">
                             <ArrowDownIcon className="x3" />
@@ -43,8 +43,8 @@ class TipsList extends React.Component {
                 <h2 id="exercises" className="mx-auto mb-4 text-center"> top 5 breathing exercises</h2> */}
                     </div>
                     <div>
-                        <div>
-                            <div className="container" id="routine"><h2 className="ml-3"> Daily routine </h2></div>
+                        <div className="container tight">
+                            <div id="routine"><h2 className="ml-3"> Daily routine </h2></div>
                             <ul className="horizontal-scroll no-scrollbar">
                                 {this.state.tips.map(tip => (
                                     <div className={tip.url + " card mt-4 mb-4 gradient-fill" + (this.routines.tipsUrls.indexOf(tip.url) > -1 ? "" : " d-none")} key={tip.id}>
@@ -61,8 +61,8 @@ class TipsList extends React.Component {
                                 ))}
                             </ul>
                         </div>
-                        <div>
-                            <div className="container" id="discover"><h2 className="ml-3"> Discover </h2></div>
+                        <div className="container tight">
+                            <div id="discover"><h2 className="ml-3"> Discover </h2></div>
                             <ul className="horizontal-scroll no-scrollbar">
                                 {this.state.tips.map(tip => (
                                     <div className={tip.url + " card row mt-4 mb-4 gradient-fill" + (this.routines.tipsUrls.indexOf(tip.url) < 0 ? "" : " d-none")} key={tip.id}>

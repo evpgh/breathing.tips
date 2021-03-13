@@ -1,8 +1,6 @@
 .Features {
     padding-top: 2rem;
     flex-flow: column;
-    padding-right: 0px !important;
-    padding-left: 0px !important;
 }
 
 a.GetStarted {
@@ -273,4 +271,14 @@ a.GetStarted {
 
 .x3 {
     font-size: 3rem;
+}
+
+@media (max-width:1200px) {
+    .tight {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        max-width: none !important;
+    }
 }

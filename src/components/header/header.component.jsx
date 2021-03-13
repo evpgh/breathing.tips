@@ -9,7 +9,7 @@ export const Header = () => {
                     <h1>experience</h1>
                     <h2>breathing correctly</h2>
                 </div>
-                <div className="img-holder text-center">
+                <div className="container img-holder text-center">
                     <img src="/images/whifflet-10.png" alt="air bubble" className="img-fluid" />
                 </div>
             </header>
