@@ -34,7 +34,7 @@
         "exhale": 4,
         "hold_empty": 4,
         "repeat": 20,
-        "envmap": "/assets/focus.env",
+        "envmap": "/assets/box-breathing.env",
         "name": "box breathing",
         "description": "Box Breathing technique popularized by ex Navy SEAL Mark Divine increases mental clarity, energy and focus. He advices to practice it daily just after waking up to experience the physical, psychological and emotional benefits.<a href=\"https://www.medicalnewstoday.com/articles/321805\">[8]</a>",
         "url": "box-breathing",
