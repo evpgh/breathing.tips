@@ -2,7 +2,7 @@
 
 ## What
 Simple, but powerful breathing techniques visualized in a minimal 3D environment. Controls and animations are easy, intuitive and effective.  [Babylon.js](https://www.babylonjs.com/) is an amazing abstraction on top of WebGL and allows wonderful animations with little boiler plate. Main scene is based in `components/practice/practice.component.jsx` and while a bit messy, allows reusage across tips. Pan & zoom are supported on almost any browser.
-Commit in master triggers a deploy on Netlify. 
+Commit in master triggers a deploy on Netlify. Firebase is used for DB and authentication.
 
 ## Setup
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
