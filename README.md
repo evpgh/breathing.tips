@@ -1,5 +1,7 @@
 # Breathing tips
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8438d31d-9e9c-49ed-b4a4-52617c14470d/deploy-status)](https://app.netlify.com/sites/condescending-wescoff-166de8/deploys)
+
 ## What
 Simple, but powerful breathing techniques visualized in a minimal 3D environment. Controls and animations are easy, intuitive and effective.  [Babylon.js](https://www.babylonjs.com/) is an amazing abstraction on top of WebGL and allows wonderful animations with little boiler plate. Main scene is based in `components/practice/practice.component.jsx` and while a bit messy, allows reusage across tips. Pan & zoom are supported on almost any browser.
 Commit in master triggers a deploy on Netlify. Firebase is used for DB and authentication.
