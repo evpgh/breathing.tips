@@ -13,6 +13,6 @@ export const Header = () => {
                     <img src="/images/whifflet-10.png" alt="air bubble" className="img-fluid" />
                 </div>
             </header>
-        </div>
+        </div >
     )
 }

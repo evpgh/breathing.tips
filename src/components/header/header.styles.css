@@ -63,10 +63,10 @@ h2 {
 }
 
 .img-holder img {
-    -webkit-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
-    -moz-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
-    -o-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
-    animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
+    -webkit-animation: breathe 11s cubic-bezier(.55, .07, .43, .89) infinite;
+    -moz-animation: breathe 11s cubic-bezier(.55, .07, .43, .89) infinite;
+    -o-animation: breathe 11s cubic-bezier(.55, .07, .43, .89) infinite;
+    animation: breathe 11s cubic-bezier(.55, .07, .43, .89) infinite;
     box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
     -webkit-box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
     -moz-box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
