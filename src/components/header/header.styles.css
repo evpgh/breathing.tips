@@ -63,30 +63,38 @@ h2 {
 }
 
 .img-holder img {
-    -webkit-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
-    -moz-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
-    -o-animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
-    animation: breathe 4s cubic-bezier(.55, .07, .43, .89) infinite;
-    box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
-    -webkit-box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
-    -moz-box-shadow: 0px 60px 70px -48px rgba(0, 90, 167, 0.75);
+    width: 40%;
+    margin-top: 20%;
+    box-shadow:
+        7.8px 7.8px 6.2px rgba(0, 90, 167, 0.017),
+        19.7px 19.7px 17px rgba(0, 90, 167, 0.025),
+        40.6px 40.6px 41px rgba(0, 90, 167, 0.033),
+        100px 100px 136px rgba(0, 90, 167, 0.05)
+        ;
     border-radius: 50%;
+}
+
+.img-holder img:hover {
+    -webkit-animation: breathe 11s cubic-bezier(.55, .07, .43, .89) infinite;
+    -moz-animation: breathe 11s cubic-bezier(.55, .07, .43, .89) infinite;
+    -o-animation: breathe 11s cubic-bezier(.55, .07, .43, .89) infinite;
+    animation: breathe 11s cubic-bezier(.55, .07, .43, .89) infinite;
 }
 
 @keyframes breathe {
     0% {
-        width: 80%;
-        margin-top: 0%;
-    }
-
-    50% {
         width: 40%;
         margin-top: 20%;
     }
 
-    100% {
+    50% {
         width: 80%;
         margin-top: 0%;
+    }
+
+    100% {
+        width: 40%;
+        margin-top: 20%;
     }
 }
 

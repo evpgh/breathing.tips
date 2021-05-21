@@ -1,7 +1,8 @@
 .navbar {
     position: absolute;
-    top: 1rem;
+    top: 2rem;
     z-index: 1010;
+    padding: 0%;
 }
 
 .nav-menu {
