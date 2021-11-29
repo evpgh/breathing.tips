@@ -48,7 +48,7 @@ class TipsList extends React.Component {
                     </div>
                     <div>
                         <div className="container tight">
-                            <div id="routine"><h2 className="ml-3"> Daily routine </h2></div>
+                            <div id="routine"><h2 className="ml-3"> daily routine </h2></div>
                             <ul className="horizontal-scroll no-scrollbar">
                                 {this.state.tips.map(tip => (
                                     <div className={tip.url + " card mt-4 mb-4 gradient-fill" + (this.routines.tipsUrls.indexOf(tip.url) > -1 ? "" : " d-none")} key={tip.id}>
@@ -66,7 +66,7 @@ class TipsList extends React.Component {
                             </ul>
                         </div>
                         <div className="container tight">
-                            <div id="discover"><h2 className="ml-3"> Discover </h2></div>
+                            <div id="discover"><h2 className="ml-3"> discover </h2></div>
                             <ul className="horizontal-scroll no-scrollbar">
                                 {this.state.tips.map(tip => (
                                     <div className={tip.url + " card row mt-4 mb-4 gradient-fill" + (this.routines.tipsUrls.indexOf(tip.url) < 0 ? "" : " d-none")} key={tip.id}>
@@ -86,7 +86,7 @@ class TipsList extends React.Component {
                                     <div className="card-body">
                                         <h5 className="card-title">
                                             <Link to={"/"}>
-                                                create yours
+                                                Create Yours
                                             </Link>
                                         </h5>
                                         <p> Pick from variety of high quality environments and sounds. Fine tune each exercise according to your lung capacity or create a completely new one and share it with the world. <br /><br /> Sign up now and be the first to try it! </p>

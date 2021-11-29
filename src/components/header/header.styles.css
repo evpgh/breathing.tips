@@ -27,7 +27,7 @@ header a {
     top: 5%;
     left: 5%;
     text-align: left;
-    padding-top: 50px
+    padding-top: 10rem;
 }
 
 h1 {
@@ -36,7 +36,7 @@ h1 {
 }
 
 h2 {
-    font-weight: 600;
+    font-weight: 200;
     font-size: 5rem;
     color: white;
 }
@@ -184,4 +184,18 @@ h2 {
     header {
         padding-bottom: 100%;
     }
+}
+.btn-light {
+    text-align: left;
+    width: auto;
+}
+
+.btn-light:hover {
+    color: #212529;
+    background-color: #e2e6ea44;
+    border-color: #dae0e544;
+}
+
+.dropdown-menu {
+    border: none;
 }

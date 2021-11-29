@@ -9,14 +9,16 @@ import SignInModal from '../sign-in/join-modal.component'
 const NavigationLoggedOut = () => (
     <div className="container">
         <nav className="navbar navbar-dark navbar-expand justify-content-end">
-            <a routerLink="/" class="navbar-brand" href="#">breathing.tips</a>
+            <a href="/" className="navbar-brand" href="#">
+                <img src="images/favicons/favicon-32x32.png"></img>
+            </a>
             <ul className="navbar-nav">
                 <li className="nav-item"><a onClick={Panelbear.track("-routine")} href="#routine" className="nav-link">ROUTINE</a></li>
                 <li className="nav-item"><a onClick={Panelbear.track("-discover")} href="#discover" className="nav-link">DISCOVER</a></li>
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         JOIN
-            </a>
+                    </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                         <SignInModal buttonText="SIGN UP" className="dropdown-item" />
                         <SignInModal className="dropdown-item" />
@@ -30,7 +32,9 @@ const NavigationLoggedOut = () => (
 const NavigationLoggedIn = ({ currentUser }) => (
     <div className="container">
         <nav className="navbar navbar-dark navbar-expand justify-content-end">
-            <a routerLink="/" class="navbar-brand" href="#">breathing.tips</a>
+            <a href="/" className="navbar-brand" href="#">
+                <img src="images/favicons/favicon-32x32.png"></img>
+            </a>
             <ul className="navbar-nav">
                 <li className="nav-item"><a onClick={Panelbear.track("-routine")} href="#routine" className="nav-link">ROUTINE</a></li>
                 <li className="nav-item"><a onClick={Panelbear.track("-discover")} href="#discover" className="nav-link">DISCOVER</a></li>
