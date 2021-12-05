@@ -197,39 +197,39 @@ a.GetStarted {
 }
 
 .anti-stress .btn-primary {
-    background: -moz-linear-gradient(-135deg, #E7A3A4 50%, #FFFDE4 100%);
-    background: -webkit-linear-gradient(-135deg, #E7A3A4 50%, #FFFDE4 100%);
-    background: linear-gradient(-135deg, #E7A3A4 50%, #FFFDE4 100%);
+    background: -moz-linear-gradient(-135deg, #FFFDE4 1%, #E7A3A4 50%);
+    background: -webkit-linear-gradient(-135deg, #FFFDE4 1%, #E7A3A4 50%);
+    background: linear-gradient(-135deg, #FFFDE4 1%, #E7A3A4 50%);
 }
 
 .awake .btn-primary {
-    background: -moz-linear-gradient(-135deg, #CCD8B9 50%, #FFFDE4 100%);
-    background: -webkit-linear-gradient(-135deg, #CCD8B9 50%, #FFFDE4 100%);
-    background: linear-gradient(-135deg, #CCD8B9 50%, #FFFDE4 100%);
+    background: -moz-linear-gradient(-135deg, #FFFDE4 1%, #CCD8B9 50%);
+    background: -webkit-linear-gradient(-135deg, #FFFDE4 1%, #CCD8B9 50%);
+    background: linear-gradient(-135deg, #FFFDE4 1%, #CCD8B9 50%);
 }
 
 .relax .btn-primary {
-    background: -moz-linear-gradient(-135deg, #A9C6B7 50%, #FFFDE4 100%);
-    background: -webkit-linear-gradient(-135deg, #A9C6B7 50%, #FFFDE4 100%);
-    background: linear-gradient(-135deg, #A9C6B7 50%, #FFFDE4 100%);
+    background: -moz-linear-gradient(-135deg, #FFFDE4 1%, #A9C6B7 50%);
+    background: -webkit-linear-gradient(-135deg, #FFFDE4 1%, #A9C6B7 50%);
+    background: linear-gradient(-135deg, #FFFDE4 1%, #A9C6B7 50%);
 }
 
 .box-breathing .btn-primary {
-    background: -moz-linear-gradient(-135deg, #BDD2BD 50%, #FFFDE4 100%);
-    background: -webkit-linear-gradient(-135deg, #BDD2BD 50%, #FFFDE4 100%);
-    background: linear-gradient(-135deg, #BDD2BD 50%, #FFFDE4 100%);
+    background: -moz-linear-gradient(-135deg, #FFFDE4 1%,#BDD2BD 50%);
+    background: -webkit-linear-gradient(-135deg, #FFFDE4 1%,#BDD2BD 50%);
+    background: linear-gradient(-135deg, #FFFDE4 1%,#BDD2BD 50%);
 }
 
 .meditate .btn-primary {
-    background: -moz-linear-gradient(-135deg, #FAC5A8 50%, #FFFDE4 100%);
-    background: -webkit-linear-gradient(-135deg, #FAC5A8 50%, #FFFDE4 100%);
-    background: linear-gradient(-135deg, #FAC5A8 50%, #FFFDE4 100%);
+    background: -moz-linear-gradient(-135deg,  #FFFDE4 1%, #FAC5A8 50%);
+    background: -webkit-linear-gradient(-135deg,  #FFFDE4 1%, #FAC5A8 50%);
+    background: linear-gradient(-135deg,  #FFFDE4 1%, #FAC5A8 50%);
 }
 
 .custom .btn-primary {
-    background: -moz-linear-gradient(-135deg, #FED69A 50%, #FFFDE4 100%);
-    background: -webkit-linear-gradient(-135deg, #FED69A 50%, #FFFDE4 100%);
-    background: linear-gradient(-135deg, #FED69A 50%, #FFFDE4 100%);
+    background: -moz-linear-gradient(-135deg,  #FFFDE4 1%, #FED69A 50%);
+    background: -webkit-linear-gradient(-135deg,  #FFFDE4 1%, #FED69A 50%);
+    background: linear-gradient(-135deg,  #FFFDE4 1%, #FED69A 50%);
 }
 
 .card-body {
